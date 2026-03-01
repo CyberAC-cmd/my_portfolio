@@ -1,4 +1,4 @@
-# <p align="center">🕵️ PROJECT: SOC-AESTHETIC TECHNICAL SHOWCASE</p>
+# <p align="center">🕵️ PROJECT: CLOUD-NATIVE_SECURITY_IMPLEMENTATION</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/ARCHITECTURE-SECURE_FRONTEND-ff69b4?style=for-the-badge" />
