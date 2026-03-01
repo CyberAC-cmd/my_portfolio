@@ -269,7 +269,7 @@ $(document).ready(function() {
     }, document);
 })();
 
-/* System Scanner – icon morph cycle with entrance/hold/exit, overlapping for seamless transition */
+/* System Stack – horizontal row, scroll-triggered fade-in, glow/hover via CSS */
 (function() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
@@ -279,61 +279,14 @@ $(document).ready(function() {
     var items = gsap.utils.toArray('.d2c_stack_stage .d2c_toolkit_item');
     if (!items.length) return;
 
-    gsap.set(items, {
-        opacity: 0,
-        scale: 0.5,
-        rotationY: -90,
-        transformOrigin: '50% 50%',
-        force3D: true
-    });
-
-    gsap.matchMedia().add('(min-width: 768px)', function() {
-        var tl = gsap.timeline({ repeat: -1, paused: true });
-        var enterDur = 0.6;
-        var holdDur = 1.5;
-        var exitDur = 0.6;
-        var totalPerIcon = enterDur + holdDur + exitDur;
-        var overlap = 0.3;
-
-        items.forEach(function(item, i) {
-            var start = i * (totalPerIcon - overlap);
-            var icon = item.querySelector('.d2c_toolkit_icon-img');
-            tl.set(item, { opacity: 0, scale: 0.5, rotationY: -90 }, start);
-            tl.to(item, {
-                opacity: 1,
-                scale: 1,
-                rotationY: 0,
-                duration: enterDur,
-                ease: 'power3.out'
-            }, start);
-            if (icon) {
-                tl.to(icon, { filter: 'grayscale(1) brightness(0.8) contrast(1.2) drop-shadow(0 0 14px rgba(0, 255, 255, 0.8))', duration: 0.3 }, start + enterDur);
-                tl.to(icon, { filter: 'grayscale(1) brightness(0.8) contrast(1.2)', duration: 0.2 }, start + enterDur + holdDur - 0.3);
-            }
-            tl.to(item, {
-                opacity: 0,
-                scale: 1.2,
-                rotationY: 90,
-                duration: exitDur,
-                ease: 'power3.in'
-            }, start + enterDur + holdDur - overlap);
-        });
-
-        ScrollTrigger.create({
-            trigger: stage,
-            start: 'top 85%',
-            onEnter: function() { tl.play(0); }
-        });
-    }).add('(max-width: 767px)', function() {
-        gsap.to(items, {
-            opacity: 1,
-            scale: 1,
-            rotationY: 0,
-            duration: 0.5,
-            stagger: 0.06,
-            ease: 'power2.out',
-            scrollTrigger: { trigger: stage, start: 'top 85%', toggleActions: 'play none none none' }
-        });
+    gsap.set(items, { opacity: 0, y: 12 });
+    gsap.to(items, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.04,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: stage, start: 'top 85%', toggleActions: 'play none none none' }
     });
 })();
 
@@ -448,9 +401,9 @@ $(document).ready(function() {
         } else if (headlineEl) {
             tl.set(headlineEl, { textContent: '[PIVOT_INITIALISED: PHYSICAL_SECURITY -> DIGITAL_DEFENCE]' }, 0);
         }
-        tl.set(caretEl, { opacity: 1 }, scrambleDuration);
+        if (caretEl) tl.set(caretEl, { opacity: 1 }, scrambleDuration);
         tl.call(function() {
-            if (caretEl) caretEl.style.animation = 'd2c_caret_blink 1s steps(2) infinite';
+            if (caretEl) caretEl.classList.add('d2c_hero_caret--blink');
         }, null, scrambleDuration);
 
         // Step 2: Credentials – line reveal (matched to slower pace)
@@ -559,20 +512,20 @@ $(document).ready(function() {
 /* Preloader – terminal boot sequence before main content renders */
 window.addEventListener('load', function() {
     var preloader = document.querySelector('.preloader');
-    preloader.classList.add('hide');
+    if (preloader) preloader.classList.add('hide');
 });
 
 /* Scroll-to-top button – visibility toggled on scroll position */
-window.onscroll = function() { scrollFunction() };
-
-    function scrollFunction() {
-    var scrollBtn = document.getElementById("scrollBtn");
+function scrollFunction() {
+    var scrollBtn = document.getElementById('scrollBtn');
+    if (!scrollBtn) return;
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollBtn.classList.add("show");
+        scrollBtn.classList.add('show');
     } else {
-        scrollBtn.classList.remove("show");
+        scrollBtn.classList.remove('show');
     }
 }
+window.onscroll = scrollFunction;
 
 /* ==========================================================================
    initCyberInteractions – Suite of high-end interactive features
@@ -603,8 +556,25 @@ function initCyberInteractions() {
     }
     injectRedaction();
 
+    /* [A2] Contact/Comms redaction – wrap email and resume links in redacted-wrapper */
+    function injectCommsRedaction() {
+        var targets = document.querySelectorAll('.d2c_comms_redact_target');
+        targets.forEach(function(link) {
+            if (!link || !link.parentNode || link.parentNode.classList.contains('redacted-wrapper')) return;
+            var wrapper = document.createElement('span');
+            wrapper.className = 'redacted-wrapper';
+            var bar = document.createElement('div');
+            bar.className = 'redaction-bar';
+            link.parentNode.replaceChild(wrapper, link);
+            wrapper.appendChild(bar);
+            wrapper.appendChild(link);
+        });
+    }
+    injectCommsRedaction();
+
     /* GSAP redaction reveal – slower, deliberate; redacted state visible before reveal */
     gsap.utils.toArray('.redaction-bar').forEach(function(bar) {
+        if (!bar) return;
         gsap.to(bar, {
             scaleX: 0,
             duration: 2.5,
@@ -667,8 +637,7 @@ function initCyberInteractions() {
     var progressBar = document.getElementById('d2c_scroll_progress');
     if (telemetrySidebar) {
         telemetrySidebar.classList.add('d2c_telemetry_active');
-        telemetrySidebar.style.visibility = 'visible';
-        if (progressBar) progressBar.style.display = 'none';
+        if (progressBar) progressBar.classList.add('d2c_progress_hidden');
         var homeStatus = telemetrySidebar.querySelector('[data-section="home"]');
         if (homeStatus) homeStatus.classList.add('d2c_telemetry_current');
         var sections = ['home', 'about', 'experience', 'project'];
@@ -698,7 +667,7 @@ function initCyberInteractions() {
     /* [D] Attack Surface – canvas nodes, mouse lines, 1024px+ only (disabled on mobile to save battery/CPU) */
     var canvas = document.getElementById('attackSurface');
     if (canvas && window.matchMedia('(min-width: 1024px)').matches) {
-        canvas.style.visibility = 'visible';
+        canvas.classList.add('d2c_attack_surface_visible');
         var ctx = canvas.getContext('2d');
         var nodes = [];
         var nodeCount = 60 + Math.floor(Math.random() * 21);
@@ -730,15 +699,18 @@ function initCyberInteractions() {
                 t = setTimeout(fn, ms);
             };
         }
-        document.querySelector('.d2c_hero_wrapper').addEventListener('mousemove', function(e) {
-            var r = canvas.getBoundingClientRect();
-            mouse.x = e.clientX - r.left;
-            mouse.y = e.clientY - r.top;
-        });
-        document.querySelector('.d2c_hero_wrapper').addEventListener('mouseleave', function() {
-            mouse.x = -999;
-            mouse.y = -999;
-        });
+        var heroWrapper = document.querySelector('.d2c_hero_wrapper');
+        if (heroWrapper) {
+            heroWrapper.addEventListener('mousemove', function(e) {
+                var r = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - r.left;
+                mouse.y = e.clientY - r.top;
+            });
+            heroWrapper.addEventListener('mouseleave', function() {
+                mouse.x = -999;
+                mouse.y = -999;
+            });
+        }
         resize();
         window.addEventListener('resize', debounce(resize, 150));
 

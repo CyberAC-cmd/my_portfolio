@@ -160,3 +160,9 @@
 #attackSurface {
     visibility: hidden;
 }
+#attackSurface.d2c_attack_surface_visible {
+    visibility: visible;
+}
+.d2c_scroll_progress.d2c_progress_hidden {
+    display: none;
+}

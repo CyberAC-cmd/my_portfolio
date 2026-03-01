@@ -899,36 +899,54 @@ p {
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
-/* System Stack: scanner stage – fixed height, icons stacked and centred for morph */
+/* System Stack: horizontal row, flex-wrap for mobile, uniform icons, glow/hover */
 .d2c_stack_stage {
     position: relative;
     width: 100%;
-    height: 180px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 24px 32px;
+    padding: 20px 0;
 }
 .d2c_stack_stage .d2c_toolkit_item {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
     flex-shrink: 0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease, filter 0.3s ease;
+}
+.d2c_stack_stage .d2c_toolkit_item:hover {
+    box-shadow: 0 0 16px rgba(0, 255, 255, 0.5);
 }
 .d2c_stack_stage .d2c_toolkit_icon-img {
-    height: 64px;
-    max-width: 72px;
+    height: 48px;
+    width: 48px;
+    max-width: 48px;
+    object-fit: contain;
+    filter: grayscale(1) brightness(0.8) contrast(1.2);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+.d2c_stack_stage .d2c_toolkit_item:hover .d2c_toolkit_icon-img {
+    filter: grayscale(0) drop-shadow(0 0 10px rgba(0, 255, 255, 0.7));
+    transform: scale(1.05);
 }
 .d2c_stack_stage .d2c_toolkit_label {
-    font-size: 12px;
+    font-size: 11px;
 }
 @media (max-width: 767px) {
     .d2c_stack_stage {
-        height: 140px;
+        gap: 16px 20px;
+        padding: 16px 0;
     }
     .d2c_stack_stage .d2c_toolkit_icon-img {
-        height: 52px;
-        max-width: 60px;
+        height: 40px;
+        width: 40px;
+        max-width: 40px;
     }
 }
 .d2c_toolkit_items {
@@ -1172,6 +1190,9 @@ h1 span {
     font-weight: 400;
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
     opacity: 0;
+}
+.d2c_hero_headline .d2c_hero_caret.d2c_hero_caret--blink {
+    animation: d2c_caret_blink 1s steps(2) infinite;
 }
 @keyframes d2c_caret_blink {
     0%, 50% { opacity: 1; }
