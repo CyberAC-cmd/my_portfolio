@@ -29,8 +29,8 @@ $(document).ready(function() {
     });
 });
 
-// WOW JS – scroll-triggered reveal animations
-    new WOW().init();
+// WOW JS – scroll-triggered reveal animations (safety check if CDN fails)
+    if (typeof WOW === 'function') { new WOW().init(); }
 
 /* Tap-to-expand for skills tiles on touch devices (hover: none) */
 (function() {

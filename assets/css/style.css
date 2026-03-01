@@ -34,6 +34,12 @@ body {
     background-color: #000000;
 }
 
+/* WOW Fallback – ensure .wow elements remain visible if WOW.js fails to load (404/MIME); WOW overrides via inline style when loaded */
+.wow {
+    visibility: visible;
+    opacity: 1;
+}
+
 /* Scroll progress bar – True Cyan fill as user scrolls */
 .d2c_scroll_progress {
     position: fixed;
