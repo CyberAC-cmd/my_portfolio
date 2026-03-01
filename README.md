@@ -1,80 +1,65 @@
-# Almir Cilasevic | Cyber Security Portfolio
+# <p align="center">🕵️ PROJECT: SOC-AESTHETIC TECHNICAL SHOWCASE</p>
 
-A hardened, OWASP-aligned portfolio site demonstrating secure front-end architecture, defensive design patterns, and professional cyber security credentials.
-
----
-
-## Technical Overview
-
-| Stack | Details |
-|-------|---------|
-| **Front-end** | HTML5, CSS3, JavaScript (vanilla + GSAP) |
-| **Hosting** | Azure Static Web Apps / GitHub Pages compatible |
-| **Security** | CSP, SRI, no inline scripts, semantic HTML, ARIA |
+<p align="center">
+  <img src="https://img.shields.io/badge/ARCHITECTURE-SECURE_FRONTEND-ff69b4?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/PIPELINE-AZURE_SWA_/_CLOUDFLARE-00FFFF?style=for-the-badge&logo=microsoft-azure" />
+  <img src="https://img.shields.io/badge/COMPLIANCE-OWASP_ALIGNED-32CD32?style=for-the-badge" />
+</p>
 
 ---
 
-## Security-First Features
+## 🛠️ Project Mission Briefing
+This repository is a **Technical Showcase** of a hardened front-end environment. The objective was to build a high-performance, interactive portfolio that adheres to **Defensive Design Patterns** and **Secure SDLC** (Software Development Life Cycle) principles.
 
-The following capabilities are implemented as **intentional security controls**, not merely aesthetic choices. They reflect defensive design principles applicable to high-assurance web applications.
-
-### Classified Redaction (Progressive Disclosure)
-
-A controlled information-release mechanism applied to the About section. Content is initially presented in a redacted state and revealed progressively on scroll, enforcing:
-
-- **Need-to-know disclosure:** Information is exposed only when the user has scrolled into view, reducing passive information leakage to automated scrapers or casual observers.
-- **Controlled DOM manipulation:** Implementation uses `appendChild` and `insertBefore` exclusively—no `innerHTML`—to eliminate XSS vectors if content were ever dynamically sourced.
-- **Classified-document metaphor:** Mirrors real-world handling of sensitive material where content is obscured until authorisation context is established.
-
-### Forensic Loupe (Artifact Inspection HUD)
-
-A digital investigation-style magnifier over the About portrait. Designed as a secure, isolated inspection tool:
-
-- **Input isolation:** The loupe overlay is constructed via `createElement` and `textContent` only—no HTML injection. The underlying canvas (Attack Surface) uses `pointer-events: none` and `tabindex="-1"` to prevent input hijacking or focus capture.
-- **Controlled enhancement:** Provides a fixed 2.5× zoom window without exposing raw image data or allowing arbitrary script execution in the inspection context.
-- **HUD semantics:** Reinforces the cyber/forensic theme while demonstrating disciplined client-side behaviour—no event leakage, no keyboard traps.
+### [SYSTEM_URL: LIVE_DEPLOYMENT](https://www.acilasevic.com.au)
 
 ---
 
-## Project Structure
+## 🧪 Technical Implementation Deep-Dive
 
-```
+### 1. Progressive Information Disclosure (Redaction Logic)
+Instead of standard text rendering, this project implements a **Classified Redaction System** using GSAP ScrollTriggers.
+* **The Logic:** Content exists in the DOM but is visually obscured by a "Black-Bar" overlay that scales to `0` only upon specific viewport intersection.
+* **Security Control:** This prevents "Passive Data Scraping." A bot crawling the site sees the structure, but the content remains "locked" until a human-like scroll event is registered.
+* **Implementation:** Developed using strictly `appendChild` and `textContent` to mitigate **DOM-based XSS** vulnerabilities.
+
+### 2. Forensic Artifact Inspection (The HUD Loupe)
+A custom-built **Forensic Loupe** tool allows for high-fidelity inspection of visual assets without compromising UI integrity.
+* **The Logic:** A dynamic `canvas` overlay that calculates mouse coordinates relative to the source image.
+* **Security Control:** The "Attack Surface" background utilizes `pointer-events: none` and `tabindex="-1"` to prevent **Clickjacking** and focus-trapping, ensuring the UI remains navigable and secure.
+
+### 3. Hardened Asset Pipeline (Data Sanitisation)
+A core requirement of this project was the **Data Destruction** of sensitive PII (Personally Identifiable Information) within public-facing PDFs.
+* **The Process:** 1. **Destructive Redaction:** PII physically removed at the source.
+    2. **Rasterisation (PDF2Go):** Converting text-based PDFs into flat image layers to defeat **OCR (Optical Character Recognition)** recovery tools.
+    3. **Metadata Scrubbing:** Wiping EXIF and document properties to eliminate digital fingerprints (Author, Software, Timestamps).
+
+---
+
+## 🏗️ Infrastructure & DevSecOps
+
+### **Cloud-Native Deployment**
+Deployed via **Azure Static Web Apps** with an automated **GitHub Actions** CI/CD pipeline. 
+* **Header Hardening:** Custom `staticwebapp.config.json` enforces:
+    * `Strict-Transport-Security` (HSTS)
+    * `X-Content-Type-Options: nosniff`
+    * `X-Frame-Options: DENY`
+
+### **Edge Security (Cloudflare)**
+* **Proxy Protection:** Masking origin IP addresses via Cloudflare's Global Edge Network.
+* **SSL/TLS:** Configured for **Full (Strict)** encryption with **DNSSEC** enabled to prevent DNS Spoofing/Poisoning.
+* **Authentication:** Validated using `_dnsauth` TXT tokens to mitigate **Subdomain Hijacking** risks.
+
+---
+
+## 📂 Repository Structure
+
+```text
+├── .github/workflows/   # CI/CD Pipeline (Deployment Automation)
 ├── assets/
-│   ├── css/          # Styles (style, responsive, cyber-interactions)
-│   ├── docs/        # PDFs (CV, transcripts – redacted/sanitised)
-│   ├── images/      # Icons, backgrounds, badges
-│   └── js/          # main.js – application logic
-├── lib/             # Bootstrap, GSAP, Slick, WOW (vendored)
-├── index.html       # Single-page entry
-├── staticwebapp.config.json
-└── README.md
-```
-
----
-
-## Deployment
-
-### GitHub Pages
-
-1. Push to a GitHub repository.
-2. **Settings → Pages → Source:** Deploy from branch (e.g. `main`) or `docs/` folder.
-3. All asset paths are relative (`./assets/`, `./lib/`) and resolve correctly under GitHub Pages base URLs.
-
-### Azure Static Web Apps
-
-Configured via `staticwebapp.config.json` with security headers (X-Content-Type-Options, X-Frame-Options, HSTS, X-XSS-Protection).
-
----
-
-## Security Documentation
-
-| Document | Purpose |
-|----------|---------|
-| `APPSEC_AUDIT_REPORT.md` | Pre-deployment audit (info disclosure, assets, logic, spelling) |
-| `SECURITY_HEADERS_CSP.md` | CSP recommendations and header hardening |
-
----
-
-## Licence
-
-Portfolio content © Almir Cilasevic. Third-party libraries retain their respective licences.
+│   ├── docs/           # Sanitised & Rasterised PDF Assets
+│   ├── css/            # UI Framework (Neon Pink/True Cyan Hierarchy)
+│   └── js/             # Interaction Logic (Redaction & Forensic HUD)
+├── staticwebapp.config.json # Azure Security Policy Configuration
+├── index.html          # Hardened Entry Point
+└── README.md           # Project Documentation
