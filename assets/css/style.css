@@ -1,0 +1,2521 @@
+
+/* Global Style Start */
+:root {
+    /* Font */
+    --primary_font-family: 'Satoshi', sans-serif;
+    /* Color */
+    --primary_color: #EFF1F5;
+    --secondary_color: #5E6AD2;
+    --accent_color: #2D374C;
+    --color_one: #131722;
+    --color_two: #EAFBF2;
+    --default_color: #FFFFFF;
+    /* Text Color */
+    --text_color: #C0C6D6;
+    /* BG */
+    --primary_bg: #0D111A;
+}
+
+/* selection */
+::selection {
+    color: var(--primary_color);
+    background: var(--secondary_color);
+}
+/* selection */
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+body {
+    overflow-x: hidden;
+    font-family: var(--primary_font-family);
+    letter-spacing: -0.02em;
+    background-color: #000000;
+}
+
+/* Scroll progress bar – True Cyan fill as user scrolls */
+.d2c_scroll_progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #00FFFF;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    z-index: 9999;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+section {
+    padding: 100px 0px;
+    scroll-margin-top: 100px;
+}
+a {
+    text-decoration: none;
+}
+img {
+    object-fit: cover;
+}
+ul {
+    list-style-type: none;
+}
+h1, h2, h3 {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', ui-monospace, monospace;
+}
+h4, h5, h6, p {
+    font-family: var(--primary_font-family);
+}
+h2 {
+    color: #00ffff !important;
+    font-size: 50px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    letter-spacing: 0.02em;
+}
+h6 {
+    color: var(--primary_color);
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+h4 {
+    color: var(--primary_color);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+}
+h5 {
+    color: var(--primary_color);
+    font-size: 24px;
+    font-weight: 500;
+}
+p {
+    color: var(--text_color);
+    font-size: 18px;
+    font-weight: 300;
+}
+.d2c_img_wrapper {
+    width: 593px;
+    height: 614px;
+}
+.d2c_img_wrapper img {
+    border: 2px solid #2D374C;
+}
+.d2c_img_overlay {
+    background: linear-gradient(180deg, rgba(14, 18, 27, 0.00) 0%, #0E121B 100%), radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.21) 16.19%, rgba(13, 17, 26, 0.00) 100%);
+    position: absolute;
+    inset: 0;
+}
+
+/* btn */
+.btn {
+    color: var(--primary_bg);
+    background: var(--secondary_color);
+    border: 1px solid var(--secondary_color);
+    border-radius: 0;
+    padding: 9px 30px 8px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    border-radius: 4px;
+    transition: 0.4s all;
+}
+.btn:hover {
+    color: var(--primary_color);
+    background: var(--color_one);
+    border: 1px solid var(--accent_color);
+    transition: 0.4s all;
+}
+.btn:active {
+    color: var(--primary_color) !important;
+    background: var(--color_one) !important;
+    border: 1px solid var(--accent_color) !important;
+    transition: 0.4s all;
+}
+.d2c_secondary_btn {
+    border: 1px solid var(--accent_color);
+    background: var(--color_one);
+    color: var(--primary_color);
+    transition: 0.4s all;
+}
+.d2c_secondary_btn:hover {
+    color: var(--primary_bg);
+    background: var(--secondary_color);
+    border: 1px solid var(--secondary_color);
+    transition: 0.4s all;
+}
+.d2c_secondary_btn:active {
+    color: var(--primary_bg) !important;
+    background: var(--secondary_color) !important;
+    border: 1px solid var(--secondary_color) !important;
+    transition: 0.4s all;
+}
+/* Icon */
+.d2c_icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
+    border-bottom: 1px solid var(--secondary_color);
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.35) 0%, rgba(13, 17, 26, 0.05) 100%);
+    box-shadow: 0px 5px 20px 5px rgba(94, 106, 210, 0.22);
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+/* Global Style End */
+
+/* Preloader End */
+.preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--default_color);
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+.preloader.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+.preloader img {
+    max-width: 200px;
+    max-height: 50px;
+}
+.terminal-logo {
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.terminal-logo .accent {
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+.navbar-brand {
+    max-width: none;
+    text-decoration: none;
+}
+.navbar-brand:hover .terminal-logo {
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.3);
+}
+.navbar-brand .terminal-logo {
+    display: inline-block;
+}
+/* Preloader End */
+
+/* Navbar Start */
+.d2c_footer_brand_link {
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: 18px;
+}
+.d2c_footer_brand_link:hover .terminal-logo {
+    text-shadow: 0 0 5px var(--primary_color), 0 0 10px var(--primary_color);
+}
+.d2c_footer_email {
+    font-size: 15px;
+    color: var(--text_color);
+}
+.d2c_footer_terminal {
+    color: var(--secondary_color);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.d2c_footer_arrow {
+    color: var(--secondary_color);
+    margin: 0 6px;
+}
+.d2c_footer_email_link {
+    color: var(--primary_color);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(94, 106, 210, 0.5);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.d2c_footer_email_link:hover {
+    color: var(--secondary_color);
+    border-bottom-color: var(--secondary_color);
+}
+.d2c_footer_socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.d2c_footer_social_link {
+    display: inline-block;
+    line-height: 0;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.d2c_footer_social_link:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(94, 106, 210, 0.6));
+}
+.d2c_footer_social_icon {
+    height: 38px;
+    width: auto;
+    max-width: 38px;
+    object-fit: contain;
+    display: block;
+}
+/* Header / Navbar */
+.d2c_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    z-index: 9999;
+    background: url(../images/footer_bg.jpg);
+    background-size: cover;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 16, 240, 0.4);
+    box-shadow: 0 4px 20px rgba(255, 16, 240, 0.1);
+}
+.d2c_header_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+.d2c_header_brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-family: "JetBrains Mono", "Courier New", ui-monospace, monospace;
+    font-size: 1.1rem;
+    color: #FF10F0;
+    letter-spacing: 0.06em;
+}
+.d2c_header_brand:hover {
+    color: #FF10F0;
+}
+.d2c_header_status {
+    font-family: "JetBrains Mono", "SF Mono", "Roboto Mono", ui-monospace, monospace;
+    font-size: 0.75rem;
+    color: #00ffff;
+    letter-spacing: 0.08em;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.d2c_header_status_dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    animation: d2c_status_pulse 2s ease-in-out infinite;
+}
+@keyframes d2c_status_pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+.d2c_header_nav {
+    display: flex;
+    align-items: center;
+}
+.d2c_header_links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.d2c_header_links li {
+    margin: 0;
+}
+.d2c_header_link {
+    font-family: "JetBrains Mono", "Courier New", ui-monospace, monospace;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 6px 10px;
+    transition: color 0.25s ease;
+    position: relative;
+}
+.d2c_header_link:hover {
+    color: #00ffff;
+}
+.d2c_header_link:hover::after {
+    content: "_";
+    color: #00ffff;
+    animation: d2c_nav_caret_blink 1s steps(2, start) infinite;
+}
+.d2c_header_link.active {
+    color: #00ffff;
+}
+.d2c_header_link.active::after {
+    content: "_";
+    color: #00ffff;
+    animation: d2c_nav_caret_blink 1s steps(2, start) infinite;
+}
+@keyframes d2c_nav_caret_blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+}
+.d2c_header_toggler {
+    display: none;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    color: #00ffff;
+    background: transparent;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: 0.3s ease;
+}
+.d2c_header_toggler:hover {
+    color: #00ffff;
+    background: rgba(0, 255, 255, 0.1);
+}
+.d2c_header_toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+.d2c_header_mobile {
+    background: url(../images/footer_bg.jpg);
+    background-size: cover;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px 40px 30px;
+    border-top: 1px solid rgba(255, 16, 240, 0.3);
+}
+.d2c_header_mobile_links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.d2c_header_mobile_links .d2c_header_link {
+    font-size: 1rem;
+    padding: 10px 0;
+}
+@media (max-width: 991px) {
+    .d2c_header_nav {
+        display: none;
+    }
+    .d2c_header_toggler {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media (min-width: 992px) {
+    .d2c_header_mobile {
+        display: none !important;
+    }
+}
+/* Header End */
+
+/* Section Background Start */
+.d2c_hero_wrapper {
+    margin-top: 0 !important;
+    min-height: 100vh;
+    padding: 100px 0 60px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(rgba(2, 6, 10, 0.8), rgba(2, 6, 10, 0.8)), url(../images/poly_digital_06.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000000;
+}
+.d2c_hero_wrapper .container {
+    width: 100%;
+}
+.d2c_hero_wrapper .d2c_hero_content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.d2c_hero_wrapper .d2c_hero_body {
+    text-align: center;
+}
+.d2c_about_wrapper {
+    background: url(../images/about_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.d2c_section_heading {
+    font-family: "JetBrains Mono", "Courier New", ui-monospace, monospace !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.d2c_experience_wrapper {
+    background: url(../images/about_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+}
+/* Section headings: unified terminal aesthetic (01_WHOAMI, 02_LOGS, 03_PROJECTS) */
+.d2c_about_heading,
+.d2c_experience_wrapper .d2c_experience_section_title,
+.d2c_project_wrapper .d2c_project_section_title,
+.d2c_connect_wrapper .d2c_comms_title {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #00FFFF !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.d2c_experience_wrapper .d2c_experience_section_title {
+    margin-bottom: 16px;
+}
+@media (max-width: 767px) {
+    .d2c_about_heading,
+    .d2c_experience_wrapper .d2c_experience_section_title,
+    .d2c_project_wrapper .d2c_project_section_title,
+    .d2c_connect_wrapper .d2c_comms_title {
+        font-size: 1.75rem;
+    }
+}
+.d2c_experience_wrapper .d2c_experience_section_desc {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    text-align: center;
+}
+/* Bento Grid Layout - Experience left, Certs/Edu/Skills stacked right */
+.d2c_bento_grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (max-width: 991px) {
+    .d2c_bento_grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "certs"
+            "edu"
+            "skills"
+            "experience";
+    }
+}
+/* Mobile hardening – single column, readable text (768px and below) */
+@media (max-width: 768px) {
+    .d2c_bento_grid {
+        gap: 16px;
+    }
+}
+@media (min-width: 992px) {
+    .d2c_bento_grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "experience certs"
+            "experience edu"
+            "experience skills";
+        gap: 20px;
+    }
+    .d2c_bento_exp { grid-area: experience; }
+    .d2c_bento_cert { grid-area: certs; }
+    .d2c_bento_edu { grid-area: edu; }
+    .d2c_bento_skills { grid-area: skills; }
+}
+.d2c_bento_tile {
+    min-height: 0;
+    box-shadow: none !important;
+}
+.d2c_bento_exp {
+    display: flex;
+}
+.d2c_bento_exp .d2c_experience_card {
+    flex: 1;
+}
+.d2c_bento_skills {
+    padding: 4px 0;
+    z-index: 10;
+    overflow: visible;
+}
+/* Experience cards - Stealth: unified background, perimeter-only definition */
+.d2c_experience_wrapper .d2c_experience_card.d2c_experience_card--hero {
+    height: 100%;
+}
+.d2c_experience_wrapper .d2c_experience_card {
+    position: relative;
+    padding: 24px 28px;
+    background-color: transparent;
+    background-image: url(../images/about_bg.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: none !important;
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+}
+.d2c_experience_wrapper .d2c_experience_card:hover {
+    border-color: #00FFFF;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3) !important;
+}
+.d2c_experience_wrapper .d2c_experience_card:hover .d2c_glass_reticle::before,
+.d2c_experience_wrapper .d2c_experience_card:hover .d2c_glass_reticle::after,
+.d2c_experience_wrapper .d2c_experience_card:hover .d2c_glass_reticle .d2c_reticle_bl,
+.d2c_experience_wrapper .d2c_experience_card:hover .d2c_glass_reticle .d2c_reticle_br {
+    animation: d2c_reticle_pulse 1.5s ease-in-out infinite;
+}
+@keyframes d2c_reticle_pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+.d2c_experience_wrapper .d2c_experience_card h4 {
+    color: #00ffff !important;
+    font-size: 18px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    text-shadow: none;
+    display: flex;
+    align-items: center;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+}
+.d2c_experience_wrapper .d2c_experience_card h4 .d2c_icon {
+    margin-right: 12px;
+}
+/* Technical Skills - Module Selection Grid */
+.d2c_skills_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    align-items: start;
+    padding: 8px 0;
+}
+@media (max-width: 991px) {
+    .d2c_skills_grid {
+        grid-template-columns: 1fr;
+    }
+}
+.d2c_skills_tile {
+    position: relative;
+    padding: 20px;
+    background-color: transparent;
+    background-image: url(../images/about_bg.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: none !important;
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    border-radius: 12px;
+    height: auto;
+    min-height: 120px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+.d2c_skills_tile:hover {
+    border-color: #00FFFF;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3) !important;
+}
+.d2c_skills_tile:hover .d2c_glass_reticle::before,
+.d2c_skills_tile:hover .d2c_glass_reticle::after,
+.d2c_skills_tile:hover .d2c_glass_reticle .d2c_reticle_bl,
+.d2c_skills_tile:hover .d2c_glass_reticle .d2c_reticle_br {
+    animation: d2c_reticle_pulse 1.5s ease-in-out infinite;
+}
+.d2c_skills_tile:hover .d2c_skills_tile_expanded {
+    max-height: 200px;
+    opacity: 1;
+    padding-top: 10px;
+}
+.d2c_skills_tile:hover .d2c_skills_tile_icon {
+    font-size: 28px;
+}
+/* Collapsed state: title + icon only */
+.d2c_skills_tile_collapsed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+}
+.d2c_skills_tile_header {
+    color: #00FFFF;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+    text-align: center;
+}
+.d2c_skills_tile_icon {
+    font-size: 36px;
+    color: #00FFFF;
+    transition: font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Expanded state: skills list (grows on hover) */
+.d2c_skills_tile_expanded {
+    position: relative;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.d2c_skills_scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.15), transparent);
+    animation: d2c_thm_scanline 3s linear infinite;
+    pointer-events: none;
+}
+.d2c_skills_tile_list {
+    color: #ffffff;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+.d2c_skills_tile_list .d2c_skills_prompt {
+    color: #00ffff;
+    margin-right: 4px;
+}
+@media (max-width: 575px) {
+    .d2c_skills_tile {
+        min-height: 100px;
+    }
+}
+.d2c_experience_wrapper .d2c_experience_card ul.d2c_experience_bullets {
+    list-style: none !important;
+    padding-left: 0 !important;
+}
+.d2c_experience_wrapper .d2c_experience_card ul.d2c_experience_bullets li {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    margin-bottom: 12px;
+    list-style: none !important;
+    padding-left: 0 !important;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+    display: block !important;
+    width: 100%;
+    text-align: left;
+}
+.d2c_experience_wrapper .d2c_experience_card ul.d2c_experience_bullets li::before {
+    display: none !important;
+}
+.d2c_experience_wrapper .d2c_experience_card ul.d2c_experience_bullets .d2c_exp_arrow {
+    color: #00ffff !important;
+    margin-right: 6px;
+    text-shadow: none;
+}
+.d2c_experience_wrapper .d2c_experience_card ul li {
+    color: rgba(0, 255, 255, 0.7);
+    font-size: 16px;
+    margin-bottom: 12px;
+    list-style: none;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+}
+.d2c_experience_wrapper .d2c_experience_card .d2c_experience_role {
+    margin-bottom: 24px;
+}
+.d2c_experience_wrapper .d2c_experience_card .d2c_experience_role:last-child {
+    margin-bottom: 0;
+}
+.d2c_experience_wrapper .d2c_experience_card .d2c_experience_role h6 {
+    color: #FF10F0;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 16, 240, 0.6);
+}
+.d2c_experience_wrapper .d2c_experience_card ul.d2c_experience_bullets li strong {
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+    text-shadow: none;
+}
+.d2c_experience_wrapper .d2c_bento_edu .d2c_edu_row {
+    margin-bottom: 0;
+}
+.d2c_experience_wrapper .d2c_bento_edu .d2c_edu_row_link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    text-decoration: none;
+    padding: 4px 0;
+    transition: opacity 0.3s ease;
+}
+.d2c_experience_wrapper .d2c_bento_edu .d2c_edu_row_content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+.d2c_experience_wrapper .d2c_bento_edu .d2c_edu_title {
+    color: #FF10F0 !important;
+    font-weight: 700;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+    text-shadow: 0 0 10px rgba(255, 16, 240, 0.6);
+    transition: text-decoration 0.3s ease, text-shadow 0.3s ease;
+}
+.d2c_experience_wrapper .d2c_bento_edu .d2c_edu_row_link:hover .d2c_edu_title {
+    text-decoration: underline;
+    text-decoration-color: #FF10F0;
+    text-underline-offset: 3px;
+}
+.d2c_experience_wrapper .d2c_bento_edu .d2c_edu_university {
+    color: rgba(0, 255, 255, 0.7);
+    font-size: 14px;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+}
+.d2c_experience_wrapper .d2c_bento_edu .d2c_edu_status {
+    color: rgba(0, 255, 255, 0.7);
+    font-size: 0.7rem;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    letter-spacing: 0.03em;
+}
+.d2c_experience_wrapper .d2c_bento_edu .d2c_edu_badge {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+.d2c_experience_wrapper .d2c_bento_edu .d2c_edu_row_link:hover .d2c_edu_badge {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.7));
+}
+@media (max-width: 480px) {
+    .d2c_experience_wrapper .d2c_bento_edu .d2c_edu_row_link {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .d2c_experience_wrapper .d2c_bento_edu .d2c_edu_row_link .d2c_edu_badge {
+        align-self: flex-end;
+    }
+}
+.d2c_experience_wrapper .d2c_experience_card p strong {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 700;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+}
+.d2c_experience_wrapper .d2c_experience_meta {
+    color: rgba(0, 255, 255, 0.7);
+    font-size: 15px;
+    margin-bottom: 12px;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+}
+.d2c_experience_wrapper .d2c_experience_role ul.d2c_experience_bullets li {
+    display: block !important;
+}
+.d2c_experience_wrapper .d2c_icon_sm {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    font-size: 12px;
+    margin-right: 0;
+}
+/* Credly badge in Certifications */
+.d2c_experience_wrapper .d2c_cert_badge_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.d2c_experience_wrapper .d2c_cert_badge_row > span {
+    color: #FF10F0;
+    text-shadow: 0 0 10px rgba(255, 16, 240, 0.6);
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+}
+.d2c_credly_badge_link {
+    display: inline-block;
+    line-height: 0;
+    transition: transform 0.3s ease;
+}
+.d2c_credly_badge {
+    width: 70px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.d2c_credly_badge_link:hover .d2c_credly_badge {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.5));
+}
+
+/* Tools & Technology – System Stack icons on page background (no tray/terminal) */
+.d2c_toolkit_tray {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px 0 32px;
+    background: transparent;
+    text-align: center;
+}
+.d2c_toolkit_heading {
+    color: #00ffff !important;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+/* System Stack: scanner stage – fixed height, icons stacked and centred for morph */
+.d2c_stack_stage {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.d2c_stack_stage .d2c_toolkit_item {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    flex-shrink: 0;
+}
+.d2c_stack_stage .d2c_toolkit_icon-img {
+    height: 64px;
+    max-width: 72px;
+}
+.d2c_stack_stage .d2c_toolkit_label {
+    font-size: 12px;
+}
+@media (max-width: 767px) {
+    .d2c_stack_stage {
+        height: 140px;
+    }
+    .d2c_stack_stage .d2c_toolkit_icon-img {
+        height: 52px;
+        max-width: 60px;
+    }
+}
+.d2c_toolkit_items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 28px 36px;
+}
+.d2c_toolkit_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: default;
+    pointer-events: auto;
+    padding: 4px 0;
+    transition: transform 0.3s ease;
+}
+.d2c_toolkit_icon-img {
+    height: 40px;
+    width: auto;
+    max-width: 50px;
+    object-fit: contain;
+    filter: grayscale(1) brightness(0.8) contrast(1.2);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+.d2c_toolkit_item:hover .d2c_toolkit_icon-img {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.6));
+    transform: scale(1.2);
+}
+.d2c_toolkit_label {
+    font-size: 11px;
+    font-weight: 500;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+    color: #00ffff;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.d2c_services_wrapper {
+    background: url(../images/services_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.d2c_counter_choose_bg {
+    background: url(../images/counter_choose_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.d2c_cta_project_bg {
+    background: url(../images/cta_project_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.d2c_partner_testimonial_bg {
+    background: url(../images/partner_testimonial_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.d2c_contact_wrapper {
+    background: url(../images/contact_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Contact / Comms section – .d2c_comms_title styled via unified section headings above */
+.d2c_connect_wrapper .d2c_comms_meta {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 24px;
+}
+.d2c_connect_line {
+    display: block;
+    width: 120px;
+    max-width: 100%;
+    margin: 0 auto 24px;
+}
+.d2c_connect_wrapper .d2c_connect_icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 24px;
+}
+.d2c_connect_icon_wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.3s ease;
+}
+.d2c_connect_icon_wrap .d2c_connect_bracket {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    color: #00ffff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.d2c_connect_icon_wrap:hover .d2c_connect_bracket {
+    color: #FF10F0;
+    text-shadow: 0 0 10px rgba(255, 16, 240, 0.6);
+}
+.d2c_connect_icon_link {
+    display: inline-block;
+    line-height: 0;
+    transition: transform 0.3s ease;
+}
+.d2c_connect_icon_link:hover {
+    transform: scale(1.08);
+}
+.d2c_connect_icon {
+    height: 38px;
+    width: auto;
+    max-width: 38px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+.d2c_connect_icon_link:hover .d2c_connect_icon {
+    filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(180deg);
+}
+.d2c_connect_wrapper .d2c_connect_email,
+.d2c_connect_wrapper .d2c_connect_cv {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+}
+.d2c_connect_email {
+    text-align: center;
+    font-size: 15px;
+    color: var(--text_color);
+}
+.d2c_connect_terminal {
+    color: var(--secondary_color);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.d2c_connect_arrow {
+    color: var(--secondary_color);
+    margin: 0 6px;
+}
+.d2c_connect_email_link {
+    color: var(--primary_color);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.d2c_connect_email_link:hover {
+    color: #FF10F0;
+    border-bottom-color: #FF10F0;
+}
+.d2c_connect_cv {
+    text-align: center;
+    font-size: 14px;
+}
+.d2c_connect_cv_link {
+    color: #00ffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.4);
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+.d2c_connect_cv_link:hover {
+    color: #FF10F0;
+    border-bottom-color: #FF10F0;
+}
+
+/* Section Background End */
+
+/* Hero Section Start */
+h1 {
+    color: var(--primary_color);
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 78px;
+    text-transform: capitalize;
+}
+h1 span {
+    color: var(--secondary_color);
+    font-weight: 900;
+}
+.d2c_hero_wrapper h4 {
+    letter-spacing: 6px;
+}
+.d2c_hero_wrapper h5 {
+    letter-spacing: 5.76px;
+    margin-bottom: 20px;
+}
+.d2c_hero_wrapper img {
+    border-radius: 296.5px 0px 0px 5px;
+}
+.d2c_hero_wrapper .d2c_img_overlay {
+    border-radius: 296.5px 0px 0px 5px;
+}
+.d2c_hero_wrapper p {
+    margin-bottom: 35px;
+}
+.d2c_hero_wrapper .d2c_hero_row {
+    gap: 0;
+    justify-content: center;
+}
+.d2c_hero_boot {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 0.85rem;
+    color: #00ffff;
+    opacity: 0.6;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+}
+.d2c_hero_boot_line {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.d2c_hero_boot_line.d2c_hero_boot_visible {
+    opacity: 0.6;
+}
+.d2c_hero_boot_done .d2c_hero_boot_line {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.d2c_hero_headline,
+.d2c_hero_headline #d2c_hero_headline_text {
+    color: #00ffff !important;
+}
+.d2c_hero_wrapper .d2c_hero_row,
+.d2c_hero_wrapper .d2c_hero_content,
+.d2c_hero_wrapper h1 {
+    margin-top: 0;
+}
+.d2c_hero_headline {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    text-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+.d2c_hero_headline .d2c_hero_caret {
+    color: #00ffff;
+    font-weight: 400;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    opacity: 0;
+}
+@keyframes d2c_caret_blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+}
+@keyframes slideFromLeft {
+    0% { opacity: 0; transform: translateX(-100px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideFromRight {
+    0% { opacity: 0; transform: translateX(100px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes simpleFade {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fadeInSlideDown {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.d2c_hero_credential {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #FF10F0;
+    letter-spacing: 0.08em;
+    opacity: 0;
+    visibility: hidden;
+}
+.d2c_hero_wrapper .d2c_hero_body {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.85);
+    opacity: 0;
+    visibility: hidden;
+}
+.d2c_hero_wrapper .d2c_hero_body .d2c_hero_emphasis {
+    font-weight: 600;
+    color: #ffffff;
+}
+.d2c_hero_metadata {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 28px;
+    opacity: 0;
+    visibility: hidden;
+}
+.d2c_hero_cursor {
+    color: #00ffff;
+    animation: d2c_caret_blink 1s steps(2) infinite;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+.d2c_hero_wrapper .d2c_hero_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+}
+.d2c_hero_wrapper .d2c_hero_btn_primary {
+    opacity: 0;
+    visibility: hidden;
+}
+.d2c_hero_wrapper .d2c_hero_btn_ghost {
+    opacity: 0;
+    visibility: hidden;
+}
+.d2c_hero_wrapper .d2c_hero_buttons .btn,
+.d2c_btn_github {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.d2c_hero_wrapper .d2c_hero_btn_primary,
+.d2c_hero_wrapper .d2c_hero_btn_ghost {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #FF10F0;
+    color: #FF10F0;
+    padding: 10px 25px;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+}
+.d2c_hero_wrapper .d2c_hero_btn_primary:hover,
+.d2c_hero_wrapper .d2c_hero_btn_ghost:hover {
+    background: #FF10F0;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(255, 16, 240, 0.6);
+}
+.d2c_hero_wrapper .d2c_hero_btn_primary:hover::after,
+.d2c_hero_wrapper .d2c_hero_btn_ghost:hover::after {
+    content: "_";
+    animation: d2c_nav_caret_blink 1s steps(2, start) infinite;
+}
+.d2c_btn_github {
+    background: transparent;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    padding: 10px 25px;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+}
+.d2c_btn_github:hover {
+    background: #00ffff;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+.d2c_btn_github:hover::after {
+    content: "_";
+    animation: d2c_nav_caret_blink 1s steps(2, start) infinite;
+}
+/* Hero Section End */
+
+/* About Section Start - Tactical Bento Grid */
+.d2c_about_bento {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 20px;
+    grid-template-areas:
+        "photo"
+        "story"
+        "radio"
+        "thm";
+}
+@media (min-width: 768px) {
+    .d2c_about_bento {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 20px;
+        grid-template-areas:
+            "photo story story"
+            "radio thm thm";
+    }
+}
+.d2c_about_area { min-height: 0; }
+.d2c_about_photo { grid-area: photo; }
+.d2c_about_story {
+    grid-area: story;
+    padding: 0 0 0 0;
+}
+@media (min-width: 768px) {
+    .d2c_about_story {
+        padding: 0 0 0 24px;
+    }
+}
+.d2c_about_radio { grid-area: radio; }
+.d2c_about_thm { grid-area: thm; }
+
+/* Photo - Square Surveillance Feed, Neon Pink border */
+.d2c_about_img_frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #FF10F0;
+    transition: all 0.4s ease;
+    aspect-ratio: 1;
+}
+.d2c_about_img_frame:hover {
+    box-shadow: 0 0 25px rgba(255, 16, 240, 0.4);
+    transform: translateY(-3px);
+}
+.d2c_about_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+/* .d2c_about_heading - see unified section headings above */
+.d2c_about_wrapper .d2c_about_body,
+.d2c_about_wrapper .d2c_about_body p,
+.d2c_about_wrapper .d2c_about_body strong {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
+}
+.d2c_about_wrapper .d2c_about_body {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 900px;
+    color: rgba(255, 255, 255, 0.9);
+}
+/* Line reveal: overflow mask for GSAP manual line-split animation */
+.d2c_line_mask {
+    overflow: hidden;
+    line-height: inherit;
+}
+.d2c_line_inner {
+    display: block;
+}
+
+.d2c_about_wrapper .d2c_about_body p {
+    color: rgba(255, 255, 255, 0.9);
+}
+.d2c_about_wrapper .d2c_about_body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Glass module + targeting reticles */
+.d2c_glass_module {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: none !important;
+    border: 1px solid rgba(255, 16, 240, 0.2);
+}
+/* Experience bento: dark glass so True Cyan pops */
+#experience .d2c_glass_module {
+    background-color: transparent;
+    background-image: url(../images/about_bg.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid rgba(0, 255, 255, 0.15);
+}
+#experience .d2c_glass_module:hover {
+    border-color: #00FFFF;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3) !important;
+    transition: all 0.3s ease-in-out;
+}
+/* Targeting reticles - L-shaped corners (5px) at all 4 corners */
+.d2c_glass_module .d2c_glass_reticle {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+.d2c_glass_module .d2c_glass_reticle::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #00ffff;
+    border-right: none;
+    border-bottom: none;
+}
+.d2c_glass_module .d2c_glass_reticle::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #00ffff;
+    border-left: none;
+    border-bottom: none;
+}
+.d2c_glass_module .d2c_glass_reticle .d2c_reticle_bl {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #00ffff;
+    border-top: none;
+    border-right: none;
+}
+.d2c_glass_module .d2c_glass_reticle .d2c_reticle_br {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #00ffff;
+    border-top: none;
+    border-left: none;
+}
+/* Radio Deck - Glass pane, smaller icons, tighter text */
+.d2c_radio_deck {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 16, 240, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+    height: 100%;
+}
+.d2c_radio_deck_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.d2c_radio_deck_title {
+    color: #FF10F0;
+    font-family: "JetBrains Mono", "Courier New", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+.d2c_radio_deck_signal {
+    color: #00ffff;
+    display: flex;
+    align-items: center;
+}
+.d2c_radio_deck_signal svg {
+    display: block;
+}
+.d2c_radio_row {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background 0.3s ease, filter 0.3s ease;
+}
+.d2c_radio_row:last-of-type {
+    margin-bottom: 12px;
+}
+.d2c_radio_row:hover {
+    background: rgba(0, 255, 255, 0.05);
+}
+.d2c_radio_row:hover .d2c_radio_icon {
+    filter: none;
+}
+.d2c_radio_icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    object-fit: contain;
+    filter: grayscale(1) brightness(1.2);
+    transition: filter 0.3s ease;
+}
+.d2c_radio_text {
+    font-family: "JetBrains Mono", "Courier New", ui-monospace, monospace;
+    font-size: 11px;
+}
+.d2c_radio_mhz {
+    color: #00ffff;
+}
+.d2c_radio_name {
+    color: #ffffff;
+}
+.d2c_radio_deck_footer {
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.d2c_radio_deck_status {
+    font-family: "JetBrains Mono", "Courier New", ui-monospace, monospace;
+    font-size: 11px;
+    color: #00ffff;
+    animation: d2c_radio_blink 1s steps(2, start) infinite;
+}
+@keyframes d2c_radio_blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0.4; }
+}
+/* About Bento - Mobile: single column, 20px gap */
+@media (max-width: 767px) {
+    .d2c_about_bento {
+        gap: 20px;
+    }
+    .d2c_radio_deck {
+        max-width: 100%;
+    }
+    .d2c_thm_iframe,
+    .d2c_thm_terminal_body iframe {
+        width: 100% !important;
+        max-width: 340px;
+    }
+}
+
+.d2c_thm_terminal {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 16, 240, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+}
+.d2c_thm_terminal_bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 16, 240, 0.2);
+}
+.d2c_thm_terminal_dots {
+    display: flex;
+    gap: 6px;
+}
+.d2c_thm_dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+}
+.d2c_thm_dot--red { background: #ff5f56; }
+.d2c_thm_dot--yellow { background: #ffbd2e; }
+.d2c_thm_dot--green { background: #27c93f; }
+.d2c_thm_terminal_title {
+    font-family: "Courier New", "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.05em;
+}
+.d2c_thm_terminal_body_wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    min-height: 180px;
+    overflow: hidden;
+}
+.d2c_thm_scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.15), transparent);
+    animation: d2c_thm_scanline 3s linear infinite;
+    pointer-events: none;
+}
+@keyframes d2c_thm_scanline {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+.d2c_thm_terminal_body {
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+.d2c_thm_terminal_body .thm-badge-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.d2c_thm_iframe {
+    border: none;
+    width: 380px !important;
+    height: 150px !important;
+    max-width: 100%;
+    display: block;
+}
+.d2c_thm_terminal_body iframe {
+    width: 380px !important;
+    height: 150px !important;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.thm-badge-container {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+.thm-badge-container:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.6));
+    transform: scale(1.02);
+}
+.thm-badge-wrapper {
+    position: relative;
+}
+.thm-badge-wrapper .thm-badge-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.d2c_about_wrapper ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.d2c_about_wrapper ul li {
+    color: var(--primary_color);
+    font-size: 17px;
+    font-weight: 500;
+    font-family: var(--primary_font-family);
+    padding: 10px 0px;
+}
+.d2c_about_wrapper i {
+    font-size: 14px;
+}
+/* About Section End */
+
+/* Service Section Start */
+.d2c_card {
+    padding: 1px 1px 0px 1px;
+    background: linear-gradient(180deg, rgba(94,106,210,0.5) 0%, rgba(19,23,34,0) 90%);
+}
+.d2c_card_child {
+    padding: 10px;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.17) 0%, rgba(13, 17, 26, 0) 100%), #131722;
+}
+.d2c_card_child_two {
+    padding: 0px 1px 1px 1px;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.17) 0%, rgba(13, 17, 26, 0) 100%), #131722;
+    transition: 0.4s all;
+}
+.d2c_card_child_three {
+    padding: 25px;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.17) 0%, rgba(13, 17, 26, 0) 100%), #131722;
+}
+.d2c_card:hover .d2c_card_child_two {
+    background: linear-gradient(0deg, rgba(94,106,210,0.3) 0%, rgba(27,31,47,1) 30%);
+    transition: 0.4s all;
+}
+.d2c_icon_wrapper {
+    width: 75px;
+    height: 75px;
+    padding: 0px 1px 1px 1px;
+    border-radius: 100px;
+    background: linear-gradient(180deg, rgba(32,35,55,1) 0%, rgba(57,59,96,1) 100%);
+    margin: 0 auto 30px;
+}
+.d2c_service_icon {
+    width: 74px;
+    height: 74px;
+    font-size: 30px;
+    color: var(--secondary_color);
+    border-radius: 100px;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.35) 0%, rgba(13, 17, 26, 0.5) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.d2c_card h6 {
+    margin-bottom: 10px;
+}
+/* Service Section End */
+
+/* Counter Section Start */
+.d2c_border_bg {
+    background: linear-gradient(180deg, rgba(87,98,193,0.5) 0%, rgba(50,57,106,0.5) 100%);
+    padding: 1px;
+}
+.d2c_count_wrapper {
+    background-image: url(../images/d2c_box_bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px 100px;
+}
+.d2c_counter_wrapper h1 span {
+    color: var(--primary_color);
+    font-weight: 700;
+}
+.d2c_counter_wrapper h6 {
+    color: var(--secondary_color);
+}
+/* Counter Section End */
+
+/* Why Choose Me Section Start */
+.d2c_choose_me_wrapper h4 {
+    color: var(--secondary_color);
+    font-size: 27px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+.d2c_choose_me_wrapper .d2c_icon {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+    color: var(--text_color);
+}
+.d2c_choose_me_wrapper h6 {
+    color: var(--secondary_color);
+    font-size: 18px;
+    font-weight: 500;
+}
+.d2c_choose_me_wrapper img {
+    border-radius: 296.5px 0px 0px 0px;
+}
+.d2c_choose_me_wrapper .d2c_img_overlay {
+    border-radius: 296.5px 0px 0px 0px;
+}
+.d2c_choose_me_wrapper li {
+    margin: 7px 0px;
+}
+/* Why Choose Me Section End */
+
+/* Call To Action Start */
+.d2c_c2a_card {
+    padding: 70px 80px;
+    background-image: url(../images/d2c_box_bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.d2c_c2a_card h2 {
+    padding: 0px 101px;
+    margin-bottom: 30px;
+}
+.d2c_c2a_card p {
+    margin-bottom: 40px;
+}
+/* Call To Action End */
+
+/* Project Section Start - Bento/Terminal Card Layout */
+/* .d2c_project_section_title - see unified section headings above */
+.d2c_project_wrapper .d2c_project_section_title {
+    margin-bottom: 16px;
+}
+.d2c_project_wrapper .d2c_project_section_desc {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.d2c_project_wrapper .d2c_project_card_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    perspective: 1200px;
+}
+.d2c_project_wrapper .d2c_project_card_item {
+    min-height: 0;
+    display: flex;
+}
+.d2c_project_wrapper .d2c_project_card_glass {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 380px;
+    height: 100%;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    backdrop-filter: blur(4px) saturate(120%);
+    -webkit-backdrop-filter: blur(4px) saturate(120%);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+.d2c_project_wrapper .d2c_project_card_glass:hover {
+    border-color: rgba(255, 16, 240, 0.8);
+    box-shadow: 0 0 25px rgba(255, 16, 240, 0.4);
+}
+.d2c_project_wrapper .d2c_project_card_bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.4s ease;
+}
+.d2c_project_wrapper .d2c_project_card_glass:hover .d2c_project_card_bg {
+    transform: scale(1.05);
+}
+.d2c_project_wrapper .d2c_project_card_bg_pentest {
+    background-image: url(../images/v617-bb-07-technology.jpg);
+}
+.d2c_project_wrapper .d2c_project_card_bg_native {
+    background-image: url(../images/v617-bb-10-technology.jpg);
+}
+.d2c_project_wrapper .d2c_project_card_overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8));
+    pointer-events: none;
+}
+.d2c_project_wrapper .d2c_project_card_inner {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+.d2c_project_wrapper .d2c_project_card_inner .d2c_btn_github {
+    margin-top: auto;
+}
+.d2c_project_wrapper .d2c_project_card_title,
+.d2c_project_wrapper .d2c_project_card_title a {
+    color: #00ffff !important;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+    transition: text-shadow 0.3s ease;
+}
+.d2c_project_wrapper .d2c_project_card_title a:hover {
+    text-shadow: 0 0 18px rgba(0, 255, 255, 0.7);
+}
+.d2c_project_wrapper .d2c_project_card_label {
+    color: #FF10F0;
+    font-size: 14px;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(255, 16, 240, 0.4);
+}
+.d2c_project_wrapper .d2c_project_card_desc,
+.d2c_project_wrapper .d2c_project_card_bullets li {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    color: rgba(255, 255, 255, 0.8);
+}
+.d2c_project_wrapper .row:has(.d2c_img_wrapper) {
+    overflow: visible;
+}
+.d2c_project_wrapper .d2c_large_img {
+    height: 700px;
+}
+.d2c_project_wrapper .d2c_small_img {
+    height: 338px;
+}
+/* Card wrapper: image as background layer, scale + neon border glow on hover */
+.d2c_project_wrapper .d2c_img_wrapper {
+    overflow: hidden;
+    border: 1px solid rgba(94, 106, 210, 0.35);
+    box-shadow: 0 0 15px rgba(94, 106, 210, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.d2c_project_wrapper .d2c_img_wrapper:hover {
+    transform: scale(1.02);
+    border-color: rgba(94, 106, 210, 0.7);
+    box-shadow: 0 0 25px rgba(94, 106, 210, 0.5), 0 0 50px rgba(94, 106, 210, 0.25);
+}
+/* Image layer (technical/cyber image - replace src for server room, network, etc.) */
+.d2c_project_wrapper .d2c_img_wrapper img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+/* Default: darkened overlay so white/neon text is easy to read */
+.d2c_project_wrapper .d2c_overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(13, 17, 26, 0.78);
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+/* Hover: overlay clears so background image becomes clearer */
+.d2c_project_wrapper .d2c_img_wrapper:hover .d2c_overlay {
+    opacity: 0.35;
+}
+/* Card content always visible (accessibility + mobile) */
+.d2c_project_wrapper .d2c_card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 1;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+.d2c_project_wrapper .d2c_card .d2c_card_child,
+.d2c_project_wrapper .d2c_card .d2c_card_child_two {
+    background: transparent;
+}
+.d2c_project_wrapper .d2c_card_child_three {
+    height: 100%;
+    padding: 16px 14px 14px;
+    background: rgba(13, 17, 26, 0.88);
+    overflow-y: auto;
+}
+.d2c_content_wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(100% - 20px);
+}
+.d2c_project_wrapper h3 {
+    color: var(--default_color);
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 16px;
+}
+.d2c_project_wrapper .d2c_card_child_three p {
+    color: var(--color_two);
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 26px;
+}
+.d2c_project_card_icon_wrapper {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+.d2c_project_card_icon {
+    font-size: 56px;
+    color: var(--secondary_color);
+    filter: drop-shadow(0 0 10px rgba(94, 106, 210, 0.8)) drop-shadow(0 0 20px rgba(94, 106, 210, 0.5));
+    display: inline-block;
+}
+.d2c_tech_stack {
+    font-size: 14px;
+    color: var(--color_two);
+    margin-top: 12px;
+}
+.d2c_tech_stack strong {
+    color: var(--primary_color);
+}
+.d2c_achievements_heading {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 14px;
+    margin-bottom: 10px;
+}
+.d2c_project_achievements {
+    list-style: none;
+    padding-left: 0;
+}
+.d2c_project_achievements li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+    color: var(--color_two);
+    font-size: 14px;
+    line-height: 1.4;
+}
+.d2c_project_achievements li .d2c_icon {
+    flex-shrink: 0;
+    margin-right: 0;
+}
+.d2c_project_achievements li strong {
+    color: var(--primary_color);
+}
+.d2c_project_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+.d2c_project_wrapper .d2c_tag {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    color: #FF10F0;
+    background: transparent;
+    border: 1px solid #FF10F0;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
+}
+.d2c_project_wrapper .d2c_tag:hover {
+    background: rgba(255, 16, 240, 0.1);
+    border-color: #FF10F0;
+    box-shadow: 0 0 10px rgba(255, 16, 240, 0.4);
+}
+.d2c_project_wrapper h4 {
+    color: var(--default_color);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.d2c_project_wrapper ul {
+    padding-left: 0;
+}
+.d2c_project_wrapper ul li {
+    padding: 7px 0px;
+    color: var(--color_two);
+}
+.d2c_project_wrapper .d2c_icon {
+    width: 24px;
+    height: 24px;
+    color: var(--default_color);
+    font-size: 10px;
+    margin-right: 10px;
+}
+/* Project Section End */
+
+/* Partner Section Start */
+.d2c_partner_box {
+    background-image: url(../images/d2c_box_bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 70px 80px 60px;
+}
+.d2c_partner_box img {
+    margin: 0 auto;
+}
+.slick-slide {
+    padding: 0px 12px;
+}
+/* Partner Section End */
+
+/* Testimonial Section Start */
+.d2c_testimonial_wrapper h2 {
+    margin-bottom: 60px;
+}
+.d2c_testimonial_wrapper h4 {
+    color: var(--text_color);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+}
+.d2c_testimonial_wrapper h6 {
+    font-size: 18px;
+    color: var(--secondary_color);
+    margin-bottom: 5px;
+}
+.d2c_testimonial_wrapper p {
+    font-size: 16px;
+    color: var(--text_color);
+}
+.d2c_carousel_left_btn {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    left: -100px;
+}
+.d2c_carousel_right_btn {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    right: -100px;
+}
+.slick-arrow {
+    width: 56px;
+    height: 56px;
+    font-size: 18px;
+    border-radius: 100px;
+    color: var(--primary_color);
+    border: 1px solid #2e3358;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.35) 0%, rgba(13, 17, 26, 0.05) 100%);
+    box-shadow: 0px 5px 20px 5px rgba(94, 106, 210, 0.22);
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
+}
+/* Testimonial Section End */
+
+/* Contact Section Start */
+.form-label {
+    color: var(--secondary_color);
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 6px !important;
+}
+.form-control {
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.17) 0%, rgba(13, 17, 26, 0) 100%), #131722;
+    color: var(--text_color) !important;
+    font-family: var(--secondary_font);
+    border-radius: 4px;
+    border: 1px solid #333B6D;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.form-control:focus {
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.17) 0%, rgba(13, 17, 26, 0.00) 100%), #131722;
+    box-shadow: none;
+    border: 1px solid #333B6D;
+    color: var(--primary_text_color);
+}
+.d2c_contact_wrapper ::placeholder {
+    color: var(--text_color) !important;
+    opacity: 0.4;
+}
+textarea {
+    margin-bottom: 30px !important;
+}
+/* Contact Section End */
+
+/* System Bar Footer Start */
+.d2c_system_bar {
+    background: rgba(10, 10, 10, 0.9);
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+    padding: 32px 20px 24px;
+    text-align: center;
+}
+.d2c_system_bar_inner {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+}
+.d2c_system_bar_logo {
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: 12px;
+}
+.d2c_system_bar_logo:hover .terminal-logo {
+    text-shadow: 0 0 5px var(--primary_color), 0 0 10px var(--primary_color);
+}
+.d2c_system_bar .terminal-logo {
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.d2c_system_bar_email {
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 14px;
+    color: var(--text_color);
+    margin-bottom: 8px;
+}
+.d2c_system_bar_email_link {
+    color: var(--secondary_color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.d2c_system_bar_email_link:hover {
+    color: var(--primary_color);
+}
+.d2c_live_logs {
+    background: #000;
+    border-top: 1px solid #00ffff;
+    font-family: "Courier New", "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.75rem;
+    height: 80px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+.d2c_live_logs_header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+.d2c_live_logs_dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: #00ffff;
+    animation: d2c_live_logs_pulse 1.5s ease-in-out infinite;
+}
+@keyframes d2c_live_logs_pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.2); }
+}
+.d2c_log_container {
+    height: calc(80px - 32px);
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 12px 8px;
+}
+.d2c_log_container::-webkit-scrollbar {
+    display: none;
+}
+.d2c_log_line {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 2px;
+    line-height: 1.4;
+}
+.d2c_log_timestamp {
+    color: #FF10F0;
+    flex-shrink: 0;
+}
+.d2c_log_message {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.d2c_system_bar_legal {
+    font-size: 0.75rem;
+    color: var(--text_color);
+    opacity: 0.9;
+    font-family: "JetBrains Mono", "Courier New", Consolas, ui-monospace, monospace;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.d2c_system_bar_legal .d2c_system_bar_cyan {
+    color: #00ffff;
+}
+.d2c_system_bar_hardened {
+    font-size: 0.75rem;
+    font-family: "JetBrains Mono", "Courier New", Consolas, ui-monospace, monospace;
+    color: rgba(255, 255, 255, 0.7);
+}
+.d2c_system_bar_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 8px;
+}
+.d2c_system_bar_icon_link {
+    display: inline-block;
+    line-height: 0;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, filter 0.2s ease;
+}
+.d2c_system_bar_icon_link:hover {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(94, 106, 210, 0.5));
+}
+.d2c_system_bar_icon {
+    height: 20px;
+    width: auto;
+    max-width: 20px;
+    object-fit: contain;
+    display: block;
+}
+/* System Bar Footer End */
+
+/* Legacy footer (kept for reference, unused) */
+.d2c_footer_wrapper {
+    background: url(../images/group.png), url(../images/footer_bg.jpg), var(--primary_bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0px;
+    border-top: 1px solid #34396679;
+}
+.d2c_footer_card {
+    height: 100%;
+    padding: 30px;
+    border: 1px solid rgba(94, 106, 210, 0.20);
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.17) 0%, rgba(13, 17, 26, 0) 100%), #131722;
+}
+.d2c_footer_card img {
+    margin-bottom: 18px;
+}
+.d2c_footer_card h3 {
+    color: var(--secondary_color);
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 42px;
+}
+.d2c_footer_card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.d2c_footer_card p a {
+    color: var(--secondary_color);
+    transition: 0.3s all;
+}
+.d2c_footer_card p a:hover {
+    color: var(--primary_color);
+}
+.d2c_footer_card ul li a {
+    color: var(--text_color);
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.d2c_footer_wrapper .btn {
+    background: var(--secondary_color);
+    color: var(--color_one);
+    border: 1px solid var(--secondary_color);
+    height: 100%;
+    transition: 0.4s all;
+}
+.d2c_footer_wrapper .form-control {
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.17) 0%, rgba(13, 17, 26, 0.00) 100%), #131722;
+    color: var(--text_color);
+    padding: 8px 10px;
+    border: 1px solid #333B6D;
+    font-family: var(--primary_font-family);
+    font-size: 16px;
+    font-weight: 500 !important;
+    margin-bottom: 0;
+}
+.d2c_footer_wrapper .btn:hover {
+    background: var(--secondary_color);
+    color: var(--text_color);
+    border: 1px solid var(--secondary_color);
+    transition: 0.4s all;
+}
+.d2c_footer_wrapper .btn:active {
+    background: var(--secondary_color) !important;
+    color: var(--text_color) !important;
+    border: 1px solid var(--secondary_color) !important;
+    transition: 0.4s all;
+}
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    margin-left: 0px;
+}
+.d2c_footer_wrapper .input-group {
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.17) 0%, rgba(13, 17, 26, 0.00) 100%), #131722;
+}
+/* Footer Section End */
+
+/* Copy Right Section Start */
+.d2c_copy_right_wrapper {
+    padding: 12px 0px;
+    background: var(--secondary_color);
+}
+.d2c_copy_right_wrapper p {
+    color: var(--text_color);
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.d2c_copy_right_wrapper p a {
+    font-weight: 700;
+    color: var(--text_color);
+    transition: 0.4s all;
+}
+.d2c_copy_right_wrapper p a:hover {
+    font-weight: 700;
+    color: var(--color_one);
+    transition: 0.4s all;
+}
+.d2c_copy_right_wrapper ul {
+    list-style-type: none;
+}
+.d2c_copy_right_wrapper ul li {
+    padding: 0px 5px;
+}
+.d2c_copy_right_wrapper ul li:last-child {
+    padding-right: 0;
+}
+.d2c_copy_right_wrapper .d2c_icon {
+    width: 36px;
+    height: 36px;
+    background: radial-gradient(100% 100% at 50% 0%, rgba(120, 119, 198, 0.35) 0%, rgba(13, 17, 26, 0.05) 100%), var(--primary_bg);
+    color: var(--secondary_color);
+    margin-right: 0;
+    transition: 0.4s all;
+}
+.d2c_copy_right_wrapper .d2c_icon:hover {
+    color: var(--primary_color);
+    transition: 0.4s all;
+}
+/* Copy Right Section End */
+
+/* Scroll Button Start */
+#scrollBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+#scrollBtn.show {
+    display: block;
+}
+#scrollBtn a i {
+    background: var(--secondary_color);
+    font-size: 20px;
+    color: var(--default_color);
+    border-radius: 4px;
+    width: 35px;
+    height: 35px;
+    position: fixed;
+    z-index: 9999;
+    bottom: 7%;
+    right: 4%;
+    transition: all ease 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--secondary_color);
+}
+#scrollBtn a i:hover {
+    color: var(--default_color);
+    background: var(--accent_color);
+    border: 2px solid var(--accent_color);
+    transition: all ease 0.4s;
+}
+/* Scroll Button End */
+
+/* ==========================================================================
+   OWASP: CSP-safe styles (moved from inline to eliminate 'unsafe-inline' vector)
+   Unified True Cyan glow and decrypt header visibility
+   ========================================================================== */
+.d2c_hero_img_frame,
+.d2c_about_img_frame,
+.d2c_project_card_glass {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 255, 255, 0.1) !important;
+}
+.d2c_hero_img_frame:hover,
+.d2c_about_img_frame:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    transform: translateY(-5px);
+    border-color: rgba(0, 255, 255, 0.8) !important;
+}
+.d2c_project_card_glass:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    border-color: rgba(0, 255, 255, 0.8) !important;
+}
+.d2c_hero_img,
+.d2c_about_img {
+    transition: transform 0.6s ease;
+}
+.d2c_hero_img_frame:hover .d2c_hero_img,
+.d2c_about_img_frame:hover .d2c_about_img {
+    transform: scale(1.05);
+}
+.d2c_system_bar_hardened {
+    font-size: 0.75rem;
+    margin-top: 8px;
+}
+/* Prevent flash: hide decrypt headers until ScrollTrigger fires */
+.d2c_about_heading,
+.d2c_experience_section_title,
+.d2c_project_section_title,
+.d2c_comms_title {
+    opacity: 0;
+}
+
+/* ==========================================================================
+   Classified Redaction – 01_WHOAMI only, production-ready
+   ========================================================================== */
+.redacted-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    max-width: 100%;
+}
+.redaction-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000 !important;
+    z-index: 99;
+    transform-origin: right;
+    max-width: 100%;
+}
+
+/* Based on CSUME V3 template – DesignToCodes | OWASP-aligned overrides applied */

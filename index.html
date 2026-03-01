@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!-- OWASP-hardened portfolio: CSP (no unsafe-inline), SRI on external assets, semantic HTML, ARIA labels. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' https://fonts.cdnfonts.com https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.cdnfonts.com https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; frame-src https://tryhackme.com;">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Almir Cilasevic | Technical Showcase">
+    <meta property="og:description" content="Cybersecurity Professional | UNSW Graduate | Technical Portfolio Hardened with OWASP Best Practices.">
+    <meta property="og:type" content="website">
+    <title>Almir Cilasevic | Cyber Security Professional</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' font-family='monospace' font-weight='bold' fill='%2300ffff'>&gt;_</text></svg>" type="image/svg+xml">
+    <link rel="stylesheet" href="./lib/WOW-master/css/libs/animate.css">
+    <link href="https://fonts.cdnfonts.com/css/satoshi?styles=135009,135005,135007,135002,135000" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="./lib/slick-1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="./lib/slick-1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" href="./lib/bootstrap-5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/cyber-interactions.css">
+</head>
+<body>
+    <div class="preloader">
+        <span class="terminal-logo">ALMIR<span class="accent">@</span>SEC<span class="accent">:</span>~<span class="accent">/</span></span>
+    </div>
+
+    <div id="d2c_scroll_progress" class="d2c_scroll_progress" aria-hidden="true"></div>
+    <aside id="d2c_telemetry_sidebar" class="d2c_telemetry_sidebar" aria-live="polite" aria-label="Scroll section status">
+        <span data-section="home" class="d2c_telemetry_status">[STATUS: SIGNAL_ACQUIRED]</span>
+        <span data-section="about" class="d2c_telemetry_status">[STATUS: IDENTITY_VERIFIED]</span>
+        <span data-section="experience" class="d2c_telemetry_status">[STATUS: LOGS_DECRYPTED]</span>
+        <span data-section="project" class="d2c_telemetry_status">[STATUS: THREATS_MAPPED]</span>
+    </aside>
+    <header class="d2c_header">
+        <div class="d2c_header_inner">
+            <a href="./index.html" class="d2c_header_brand" aria-label="Almir Cilasevic Portfolio">
+                <span class="d2c_header_brand_text">ALMIR_CILASEVIC // [SYSTEM_OPERATOR]</span>
+                <span class="d2c_header_status">
+                    <span class="d2c_header_status_dot" aria-hidden="true"></span>
+                    STATUS: ONLINE
+                </span>
+            </a>
+            <nav class="d2c_header_nav" id="d2c_main_nav">
+                <ul class="d2c_header_links">
+                    <li><a href="#about" class="d2c_header_link nav-link">[01_WHOAMI]</a></li>
+                    <li><a href="#experience" class="d2c_header_link nav-link">[02_LOGS]</a></li>
+                    <li><a href="#project" class="d2c_header_link nav-link">[03_PROJECTS]</a></li>
+                    <li><a href="./assets/docs/Almir_Cilasevic_Resume_Re.pdf" target="_blank" rel="noopener noreferrer" class="d2c_header_link" aria-label="Download CV (PDF)">[04_CV.SH]</a></li>
+                    <li><a href="#contact" class="d2c_header_link nav-link">[05_COMMS]</a></li>
+                </ul>
+            </nav>
+            <button class="d2c_header_toggler" type="button" data-bs-toggle="collapse" data-bs-target="#d2c_header_mobile" aria-controls="d2c_header_mobile" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars d2c_header_toggler_icon"></i>
+            </button>
+        </div>
+        <div class="d2c_header_mobile collapse" id="d2c_header_mobile">
+            <ul class="d2c_header_mobile_links">
+                <li><a href="#about" class="d2c_header_link">[01_WHOAMI]</a></li>
+                <li><a href="#experience" class="d2c_header_link">[02_LOGS]</a></li>
+                <li><a href="#project" class="d2c_header_link">[03_PROJECTS]</a></li>
+                <li><a href="./assets/docs/Almir_Cilasevic_Resume_Re.pdf" target="_blank" rel="noopener noreferrer" class="d2c_header_link" aria-label="Download CV (PDF)">[04_CV.SH]</a></li>
+                <li><a href="#contact" class="d2c_header_link">[05_COMMS]</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main data-bs-spy="scroll" data-bs-target="#d2c_main_nav" data-bs-offset="100" class="position-relative">
+        <section class="d2c_hero_wrapper" id="home">
+            <canvas id="attackSurface" aria-hidden="true" tabindex="-1"></canvas>
+            <div class="container">
+                <div class="row d2c_hero_row justify-content-center">
+                    <div class="col-12 d2c_hero_content">
+                        <div class="d2c_hero_boot" id="d2c_hero_boot" aria-live="polite">
+                            <div class="d2c_hero_boot_line">[SYSTEM_BOOT_INITIALISED]</div>
+                            <div class="d2c_hero_boot_line">[LOADING_KERNEL_MODULES... DONE]</div>
+                            <div class="d2c_hero_boot_line">[ESTABLISHING_SECURE_PERIMETER... OK]</div>
+                            <div class="d2c_hero_boot_line">[DEPLOYING_OPERATOR_INTERFACE... v2.0.26]</div>
+                        </div>
+                        <div class="d2c_hero_main" id="d2c_hero_main" hidden>
+                            <h1 class="d2c_hero_headline text-white mb-2 mb-lg-3">
+                                <span id="d2c_hero_headline_text"></span><span class="d2c_hero_caret" id="d2c_hero_caret" aria-hidden="true">_</span>
+                            </h1>
+                            <div class="d2c_hero_credential mb-3 mb-lg-3">ALMIR CILASEVIC | UNSW | COMPTIA SEC+</div>
+                            <p class="d2c_hero_body">Strategic security professional pivoting from physical asset protection to high-stakes digital defence. Leveraging UNSW post-graduate expertise to map attack surfaces and harden infrastructure. I translate complex risks into actionable security protocols.</p>
+                            <div class="d2c_hero_metadata">SYS_LOC: SYDNEY_NSW // AUTH_LEVEL: UNSW_GRAD // STATUS: ACTIVE_EVOLUTION</div>
+                            <div class="d2c_hero_buttons">
+                                <a href="#project" class="btn d2c_hero_btn_primary" aria-label="View project portfolio section">[RUN_PROJECT_LOGS]</a>
+                                <a href="https://www.linkedin.com/in/almir-cilasevic-9864b921b/" target="_blank" rel="noopener noreferrer" class="btn d2c_hero_btn_ghost" aria-label="Connect with Almir on LinkedIn">[ESTABLISH_COMMS]</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="d2c_about_wrapper" id="about">
+            <div class="container">
+                <div class="d2c_about_bento">
+                    <div class="d2c_about_area d2c_about_photo wow fadeInUp">
+                        <div class="d2c_about_img_frame d2c_loupe_zone">
+                            <img src="./assets/images/pexels-anete-lusina-5240545.jpg" alt="Surveillance-style portrait of Almir in a cybersecurity professional setting" class="d2c_about_img" id="d2c_about_img" fetchpriority="high">
+                        </div>
+                    </div>
+                    <div class="d2c_about_area d2c_about_story wow fadeInUp">
+                        <h2 class="d2c_about_heading">01_WHOAMI</h2>
+                        <div class="d2c_about_body">
+                            <p>I've always been curious about how things work under the hood—especially the digital systems we rely on every day. That curiosity is what led me into the world of cyber security.</p>
+                            <p>My transition isn't just about learning tools; it's about shifting my mindset from a user of technology to a dedicated protector of it. When I'm not getting hands-on in my lab—building infrastructure or analysing how systems are compromised and subsequently defended—I'm staying plugged into the industry. Whether it's dissecting the latest <strong>SANS newsletters</strong>, tracking emerging threats through <strong>security podcasts</strong>, or following real-time breach analysis, I make it a priority to keep my finger on the pulse of the ever-evolving threat landscape.</p>
+                            <p class="mb-0">I'm documenting my journey here to show my progress and my commitment to continuous learning. I'm looking for a role where I can bring this curiosity, technical drive, and proactive energy to a defensive team.</p>
+                        </div>
+                    </div>
+                    <div class="d2c_about_area d2c_about_radio wow fadeInUp">
+                        <div class="d2c_radio_deck d2c_glass_module">
+                            <div class="d2c_glass_reticle"><span class="d2c_reticle_bl" aria-hidden="true"></span><span class="d2c_reticle_br" aria-hidden="true"></span></div>
+                            <div class="d2c_radio_deck_header">
+                                <span class="d2c_radio_deck_title">[COMMS_RECEPTION: ACTIVE_INTEL]</span>
+                                <span class="d2c_radio_deck_signal" aria-hidden="true">
+                                    <svg width="22" height="14" viewBox="0 0 22 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0" y="10" width="3" height="4" rx="1"/>
+                                        <rect x="5" y="7" width="3" height="7" rx="1"/>
+                                        <rect x="10" y="4" width="3" height="10" rx="1"/>
+                                        <rect x="15" y="2" width="3" height="12" rx="1"/>
+                                        <rect x="16" y="0" width="3" height="14" rx="1"/>
+                                    </svg>
+                                </span>
+                            </div>
+                            <a href="https://open.spotify.com/show/596m99p978358" target="_blank" rel="noopener noreferrer" class="d2c_radio_row" aria-label="Listen to Cyber Daily podcast on Spotify">
+                                <img src="./assets/images/cyber_daily.svg" alt="Cyber Daily podcast icon" class="d2c_radio_icon" loading="lazy">
+                                <span class="d2c_radio_text"><span class="d2c_radio_mhz">101.5 MHz</span> - <span class="d2c_radio_name">CYBER_DAILY</span></span>
+                            </a>
+                            <a href="https://open.spotify.com/show/214978358" target="_blank" rel="noopener noreferrer" class="d2c_radio_row" aria-label="Listen to Australian Cyber Voices podcast on Spotify">
+                                <img src="./assets/images/cyber_voices.svg" alt="Australian Cyber Voices podcast icon" class="d2c_radio_icon" loading="lazy">
+                                <span class="d2c_radio_text"><span class="d2c_radio_mhz">94.2 MHz</span> - <span class="d2c_radio_name">AUS_CYBER_VOICES</span></span>
+                            </a>
+                            <a href="https://open.spotify.com/show/314978358" target="_blank" rel="noopener noreferrer" class="d2c_radio_row" aria-label="Listen to Risky Business News podcast on Spotify">
+                                <img src="./assets/images/risky_biz.svg" alt="Risky Business News podcast icon" class="d2c_radio_icon" loading="lazy">
+                                <span class="d2c_radio_text"><span class="d2c_radio_mhz">108.0 MHz</span> - <span class="d2c_radio_name">RISKY_BIZ_NEWS</span></span>
+                            </a>
+                            <div class="d2c_radio_deck_footer">
+                                <span class="d2c_radio_deck_status">&gt;&gt; STATUS: DECODING_STREAM_</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d2c_about_area d2c_about_thm wow fadeInUp">
+                        <div class="d2c_thm_terminal d2c_glass_module">
+                            <div class="d2c_glass_reticle"><span class="d2c_reticle_bl" aria-hidden="true"></span><span class="d2c_reticle_br" aria-hidden="true"></span></div>
+                            <div class="d2c_thm_terminal_bar">
+                                <div class="d2c_thm_terminal_dots">
+                                    <span class="d2c_thm_dot d2c_thm_dot--red" aria-hidden="true"></span>
+                                    <span class="d2c_thm_dot d2c_thm_dot--yellow" aria-hidden="true"></span>
+                                    <span class="d2c_thm_dot d2c_thm_dot--green" aria-hidden="true"></span>
+                                </div>
+                                <span class="d2c_thm_terminal_title">THM_LEVEL_MONITOR.exe</span>
+                            </div>
+                            <div class="d2c_thm_terminal_body_wrap">
+                                <div class="d2c_thm_scanline" aria-hidden="true"></div>
+                                <div class="thm-badge-container d2c_thm_terminal_body">
+                                    <div class="thm-badge-wrapper">
+                                        <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=627833" class="d2c_thm_iframe" scrolling="no" title="TryHackMe Badge" sandbox="allow-scripts allow-same-origin"></iframe>
+                                        <a href="https://tryhackme.com/p/ProjectAL" target="_blank" rel="noopener noreferrer" class="thm-badge-link" aria-label="View TryHackMe profile"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="d2c_experience_wrapper" id="experience">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 wow fadeInUp">
+                        <h2 class="d2c_experience_section_title">02_LOGS</h2>
+                        <p class="d2c_experience_section_desc">A documented history of technical accreditation, academic research, and operational experience. This log tracks my proficiency across security frameworks, toolsets, and the hardening of enterprise environments.</p>
+                    </div>
+                </div>
+                <div class="d2c_bento_grid">
+                    <div class="d2c_bento_tile d2c_bento_cert wow fadeInUp">
+                        <div class="d2c_experience_card d2c_glass_module">
+                            <div class="d2c_glass_reticle"><span class="d2c_reticle_bl" aria-hidden="true"></span><span class="d2c_reticle_br" aria-hidden="true"></span></div>
+                            <h4><i class="fas fa-certificate d2c_icon"></i> CERTIFICATIONS</h4>
+                            <ul class="ps-0 mb-0">
+                                <li class="d2c_cert_badge_row">
+                                    <span>CompTIA Security+ SY0-701</span>
+                                    <a href="https://www.credly.com/badges/e005c9b9-2cda-4926-9f3c-236a883ba652" target="_blank" rel="noopener noreferrer" class="d2c_credly_badge_link" aria-label="View CompTIA Security+ badge on Credly">
+                                        <img src="./assets/images/Security+-png.png" alt="CompTIA Security+ Badge" class="d2c_credly_badge" loading="lazy">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d2c_bento_tile d2c_bento_edu wow fadeInUp">
+                        <div class="d2c_experience_card d2c_glass_module">
+                            <div class="d2c_glass_reticle"><span class="d2c_reticle_bl" aria-hidden="true"></span><span class="d2c_reticle_br" aria-hidden="true"></span></div>
+                            <h4><i class="fas fa-graduation-cap d2c_icon"></i> EDUCATION</h4>
+                            <ul class="ps-0 mb-0 d2c_edu_list">
+                                <li class="d2c_edu_row">
+                                    <a href="./assets/docs/UNSW_AHEGS.pdf" target="_blank" rel="noopener noreferrer" class="d2c_edu_row_link" aria-label="View UNSW Graduate Certificate transcript">
+                                        <span class="d2c_edu_row_content">
+                                            <strong class="d2c_edu_title">Graduate Certificate in Cybersecurity</strong>
+                                            <span class="d2c_edu_university">University of New South Wales</span>
+                                            <span class="d2c_edu_status">[STATUS: VERIFIED_OFFICIAL_TRANSCRIPT]</span>
+                                        </span>
+                                        <img src="./assets/images/unsw.svg" alt="UNSW" class="d2c_edu_badge" loading="lazy">
+                                    </a>
+                                </li>
+                                <li class="d2c_edu_row mt-3">
+                                    <a href="./assets/docs/Almir%20Cilasevic_SoC.pdf" target="_blank" rel="noopener noreferrer" class="d2c_edu_row_link" aria-label="View Sydney Bootcamp Statement of Completion">
+                                        <span class="d2c_edu_row_content">
+                                            <strong class="d2c_edu_title">Cybersecurity Bootcamp Statement of Completion</strong>
+                                            <span class="d2c_edu_university">University of Sydney (via edX)</span>
+                                            <span class="d2c_edu_status">[STATUS: VERIFIED_OFFICIAL_TRANSCRIPT]</span>
+                                        </span>
+                                        <img src="./assets/images/syduni.svg" alt="University of Sydney" class="d2c_edu_badge" loading="lazy">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d2c_bento_tile d2c_bento_skills wow fadeInUp">
+                        <div class="d2c_skills_grid">
+                            <div class="d2c_skills_tile d2c_glass_module">
+                                <div class="d2c_glass_reticle"><span class="d2c_reticle_bl" aria-hidden="true"></span><span class="d2c_reticle_br" aria-hidden="true"></span></div>
+                                <div class="d2c_skills_tile_collapsed">
+                                    <h4 class="d2c_skills_tile_header">[SEC_TOOLS]</h4>
+                                    <i class="fas fa-shield-alt d2c_skills_tile_icon" aria-hidden="true"></i>
+                                </div>
+                                <div class="d2c_skills_tile_expanded">
+                                    <div class="d2c_skills_scanline" aria-hidden="true"></div>
+                                    <p class="d2c_skills_tile_list"><span class="d2c_skills_prompt">></span> Nmap, Burp Suite, Wireshark, Metasploit, Splunk (SIEM), Nessus, Hashcat, Autopsy, Snort.</p>
+                                </div>
+                            </div>
+                            <div class="d2c_skills_tile d2c_glass_module">
+                                <div class="d2c_glass_reticle"><span class="d2c_reticle_bl" aria-hidden="true"></span><span class="d2c_reticle_br" aria-hidden="true"></span></div>
+                                <div class="d2c_skills_tile_collapsed">
+                                    <h4 class="d2c_skills_tile_header">[CLOUD_INFRA]</h4>
+                                    <i class="fas fa-cloud d2c_skills_tile_icon" aria-hidden="true"></i>
+                                </div>
+                                <div class="d2c_skills_tile_expanded">
+                                    <div class="d2c_skills_scanline" aria-hidden="true"></div>
+                                    <p class="d2c_skills_tile_list"><span class="d2c_skills_prompt">></span> Microsoft Azure, Windows Server Admin, Linux CLI (Ubuntu/Kali), TCP/IP Networking, Active Directory (AD) Security.</p>
+                                </div>
+                            </div>
+                            <div class="d2c_skills_tile d2c_glass_module">
+                                <div class="d2c_glass_reticle"><span class="d2c_reticle_bl" aria-hidden="true"></span><span class="d2c_reticle_br" aria-hidden="true"></span></div>
+                                <div class="d2c_skills_tile_collapsed">
+                                    <h4 class="d2c_skills_tile_header">[FRAMEWORKS]</h4>
+                                    <i class="fas fa-book d2c_skills_tile_icon" aria-hidden="true"></i>
+                                </div>
+                                <div class="d2c_skills_tile_expanded">
+                                    <div class="d2c_skills_scanline" aria-hidden="true"></div>
+                                    <p class="d2c_skills_tile_list"><span class="d2c_skills_prompt">></span> ACSC Essential Eight, NIST CSF, ISO 27001, OWASP Top 10 alignment.</p>
+                                </div>
+                            </div>
+                            <div class="d2c_skills_tile d2c_glass_module">
+                                <div class="d2c_glass_reticle"><span class="d2c_reticle_bl" aria-hidden="true"></span><span class="d2c_reticle_br" aria-hidden="true"></span></div>
+                                <div class="d2c_skills_tile_collapsed">
+                                    <h4 class="d2c_skills_tile_header">[CORE_COMP]</h4>
+                                    <i class="fas fa-terminal d2c_skills_tile_icon" aria-hidden="true"></i>
+                                </div>
+                                <div class="d2c_skills_tile_expanded">
+                                    <div class="d2c_skills_scanline" aria-hidden="true"></div>
+                                    <p class="d2c_skills_tile_list"><span class="d2c_skills_prompt">></span> Vulnerability Assessment, Incident Response (IR), OSINT, Risk Hardening, Penetration Testing methodologies.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d2c_bento_tile d2c_bento_exp wow fadeInUp">
+                        <div class="d2c_experience_card d2c_experience_card--hero d2c_glass_module">
+                            <div class="d2c_glass_reticle"><span class="d2c_reticle_bl" aria-hidden="true"></span><span class="d2c_reticle_br" aria-hidden="true"></span></div>
+                            <h4><i class="fas fa-briefcase d2c_icon"></i> PROFESSIONAL EXPERIENCE</h4>
+                            <div class="d2c_experience_role">
+                                <h6>Customer Relationship Manager | Credit Corp</h6>
+                                <p class="d2c_experience_meta">[TENURE: ACTIVE_OPERATIONAL_DUTY]</p>
+                                <ul class="d2c_experience_bullets">
+                                    <li><span class="d2c_exp_arrow">-&gt;</span> <strong>[HIGH_PERFORMANCE_DELIVERY]:</strong> Consistently exceeded performance KPIs and incentive targets (7/12 months), demonstrating the discipline and result-orientation required for fast-paced consulting environments.</li>
+                                    <li><span class="d2c_exp_arrow">-&gt;</span> <strong>[ADVANCED_OSINT_&amp;_INVESTIGATION]:</strong> Utilise sophisticated skip-tracing techniques and Open-Source Intelligence (OSINT) to verify data and locate high-value assets across diverse third-party networks.</li>
+                                    <li><span class="d2c_exp_arrow">-&gt;</span> <strong>[CONFLICT_RESOLUTION_&amp;_NEGOTIATION]:</strong> Manage complex, high-pressure negotiations and dispute resolutions, mirroring the stakeholder management skills needed when communicating technical risks to business owners.</li>
+                                </ul>
+                            </div>
+                            <div class="d2c_experience_role">
+                                <h6>Asset &amp; Profit Protection Manager | David Jones</h6>
+                                <p class="d2c_experience_meta">[TENURE: 8_YEAR_STAKEHOLDER_MANAGEMENT]</p>
+                                <ul class="d2c_experience_bullets">
+                                    <li><span class="d2c_exp_arrow">-&gt;</span> <strong>[INTERNAL_CONSULTING_&amp;_AUDIT]:</strong> Led 8 years of operational security audits, identifying systemic vulnerabilities and implementing hardening protocols to mitigate loss and fraud.</li>
+                                    <li><span class="d2c_exp_arrow">-&gt;</span> <strong>[INVESTIGATIONS_&amp;_FORENSICS]:</strong> Conducted deep-dive investigations into complex fraud cases, applying evidence-gathering and chain-of-custody methodologies directly transferable to Digital Forensics.</li>
+                                    <li><span class="d2c_exp_arrow">-&gt;</span> <strong>[STRATEGY_&amp;_TRAINING]:</strong> Authored and delivered security training to 100+ employees, effectively communicating risk-reduction strategies to both technical and non-technical staff.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 pt-4 wow fadeInUp">
+                    <div class="col-12">
+                        <div class="d2c_toolkit_tray">
+                            <h4 class="d2c_toolkit_heading">[HARDWARE_INVENTORY: SYSTEM_STACK]</h4>
+                            <div class="d2c_stack_stage">
+                                <div class="d2c_toolkit_item"><img src="./assets/images/burp-suite.svg" alt="Burp Suite" class="d2c_toolkit_icon-img" loading="lazy"><span class="d2c_toolkit_label">Burp Suite</span></div>
+                                <div class="d2c_toolkit_item"><img src="./assets/images/snort.svg" alt="Snort" class="d2c_toolkit_icon-img" loading="lazy"><span class="d2c_toolkit_label">Snort</span></div>
+                                <div class="d2c_toolkit_item"><img src="./assets/images/hashcat.svg" alt="Hashcat" class="d2c_toolkit_icon-img" loading="lazy"><span class="d2c_toolkit_label">Hashcat</span></div>
+                                <div class="d2c_toolkit_item"><img src="./assets/images/metasploit.svg" alt="Metasploit" class="d2c_toolkit_icon-img" loading="lazy"><span class="d2c_toolkit_label">Metasploit</span></div>
+                                <div class="d2c_toolkit_item"><img src="./assets/images/john-the-ripper.svg" alt="John the Ripper" class="d2c_toolkit_icon-img" loading="lazy"><span class="d2c_toolkit_label">John the Ripper</span></div>
+                                <div class="d2c_toolkit_item"><img src="./assets/images/autopsy.svg" alt="Autopsy" class="d2c_toolkit_icon-img" loading="lazy"><span class="d2c_toolkit_label">Autopsy</span></div>
+                                <div class="d2c_toolkit_item"><img src="./assets/images/ubuntu.svg" alt="Ubuntu" class="d2c_toolkit_icon-img" loading="lazy"><span class="d2c_toolkit_label">Ubuntu</span></div>
+                                <div class="d2c_toolkit_item"><img src="./assets/images/tenable.svg" alt="Tenable" class="d2c_toolkit_icon-img" loading="lazy"><span class="d2c_toolkit_label">Tenable</span></div>
+                                <div class="d2c_toolkit_item"><img src="./assets/images/splunk.svg" alt="Splunk" class="d2c_toolkit_icon-img" loading="lazy"><span class="d2c_toolkit_label">Splunk</span></div>
+                                <div class="d2c_toolkit_item"><img src="./assets/images/wireshark.svg" alt="Wireshark" class="d2c_toolkit_icon-img" loading="lazy"><span class="d2c_toolkit_label">Wireshark</span></div>
+                                <div class="d2c_toolkit_item"><img src="./assets/images/azure.svg" alt="Azure" class="d2c_toolkit_icon-img" loading="lazy"><span class="d2c_toolkit_label">Azure</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="d2c_cta_project_bg">
+            <section class="d2c_project_wrapper" id="project">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 wow fadeInUp">
+                            <h2 class="d2c_project_section_title">03_PROJECTS</h2>
+                            <p class="d2c_project_section_desc">Engineering resilience through hands-on experimentation. This collection tracks the development of secure environments and the mastery of defensive protocols. Each entry represents a technical milestone in identifying, analysing, and neutralising digital risk.</p>
+                        </div>
+                    </div>
+                    <div class="row d2c_project_card_grid">
+                        <article class="d2c_project_card_item wow fadeInUp">
+                            <div class="d2c_project_card_glass h-100">
+                                <div class="d2c_project_card_bg d2c_project_card_bg_pentest"></div>
+                                <div class="d2c_project_card_overlay" aria-hidden="true"></div>
+                                <div class="d2c_project_card_inner">
+                                    <h3 class="d2c_project_card_title">
+                                        <a href="https://github.com/CyberAC-cmd/Bootcamp-Pen-Test/tree/main" target="_blank" rel="noopener noreferrer">Bootcamp Penetration Test</a>
+                                    </h3>
+                                    <p class="d2c_project_card_label mb-1">Overview</p>
+                                    <p class="d2c_project_card_desc">A comprehensive 72-hour simulated corporate engagement following PTES methodology. The assessment targeted a hybrid network to identify critical weaknesses in web services, Linux infrastructure, and Windows Active Directory environments.</p>
+                                    <p class="d2c_project_card_label mb-1">Outcomes</p>
+                                    <ul class="d2c_project_card_bullets mb-3">
+                                        <li><strong>Detection:</strong> Identified 23 unique vulnerabilities ranging from Critical RCE to OSINT leaks.</li>
+                                        <li><strong>Impact:</strong> Achieved full Domain Compromise on Windows Server 2019 via credential harvesting and NTLM hash extraction.</li>
+                                        <li><strong>Technique:</strong> Demonstrated advanced bypasses against non-recursive input filters for XSS and Command Injection.</li>
+                                    </ul>
+                                    <p class="d2c_project_card_label mb-1 mt-auto">Tools Used</p>
+                                    <div class="d2c_project_tags mb-3">
+                                        <span class="d2c_tag">Kali Linux</span>
+                                        <span class="d2c_tag">Nmap</span>
+                                        <span class="d2c_tag">Burp Suite</span>
+                                        <span class="d2c_tag">Metasploit</span>
+                                    </div>
+                                    <a href="https://github.com/CyberAC-cmd/Bootcamp-Pen-Test/tree/main" target="_blank" rel="noopener noreferrer" class="btn d2c_btn_github" aria-label="View Bootcamp Penetration Test repository on GitHub">[VIEW_ON_GITHUB]</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="d2c_project_card_item wow fadeInUp">
+                            <div class="d2c_project_card_glass h-100">
+                                <div class="d2c_project_card_bg d2c_project_card_bg_native"></div>
+                                <div class="d2c_project_card_overlay" aria-hidden="true"></div>
+                                <div class="d2c_project_card_inner">
+                                    <h3 class="d2c_project_card_title">
+                                        <a href="https://github.com/CyberAC-cmd/portfolio-site" target="_blank" rel="noopener noreferrer">Secure Cloud-Native Infrastructure</a>
+                                    </h3>
+                                    <p class="d2c_project_card_label mb-1">Overview</p>
+                                    <p class="d2c_project_card_desc">Architected and deployed a high-performance portfolio environment on Azure to demonstrate DevSecOps principles. This project focuses on immutable infrastructure and automated security hardening to protect against common cloud misconfigurations.</p>
+                                    <p class="d2c_project_card_label mb-1">Outcomes</p>
+                                    <ul class="d2c_project_card_bullets mb-3">
+                                        <li><strong>Hardening:</strong> Achieved an A+ Security Rating on Mozilla Observatory by implementing custom CSP and HSTS headers.</li>
+                                        <li><strong>Automation:</strong> Developed a fully automated CI/CD pipeline that reduced deployment time to under 2 minutes with integrated build-verification tests.</li>
+                                        <li><strong>Reliability:</strong> Leveraged cloud-native services to ensure 99.9% availability with zero-downtime deployments.</li>
+                                    </ul>
+                                    <p class="d2c_project_card_label mb-1 mt-auto">Tools Used</p>
+                                    <div class="d2c_project_tags mb-3">
+                                        <span class="d2c_tag">Azure Static Web Apps</span>
+                                        <span class="d2c_tag">GitHub Actions (CI/CD)</span>
+                                        <span class="d2c_tag">HTTP Observatory</span>
+                                        <span class="d2c_tag">YAML</span>
+                                        <span class="d2c_tag">Cloudflare</span>
+                                    </div>
+                                    <a href="https://github.com/CyberAC-cmd/portfolio-site" target="_blank" rel="noopener noreferrer" class="btn d2c_btn_github" aria-label="View Secure Cloud-Native Infrastructure repository on GitHub">[VIEW_ON_GITHUB]</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="d2c_contact_wrapper d2c_connect_wrapper" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center wow fadeInDown">
+                        <h2 class="d2c_comms_title">05_COMMS</h2>
+                        <p class="d2c_comms_meta">[SIGNAL_STRENGTH: 100%] // [UPLINK: ACTIVE]</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center wow fadeInUp">
+                    <div class="col-12">
+                        <svg class="d2c_connect_line" viewBox="0 0 200 2" preserveAspectRatio="none" aria-hidden="true">
+                            <line x1="0" y1="1" x2="200" y2="1" stroke="#00FFFF" stroke-width="1" fill="none"/>
+                        </svg>
+                        <div class="d2c_connect_icons">
+                            <span class="d2c_connect_icon_wrap"><span class="d2c_connect_bracket">[</span><a href="https://www.linkedin.com/in/almir-cilasevic-9864b921b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="d2c_connect_icon_link"><img src="./assets/images/linkedin.svg" alt="LinkedIn" class="d2c_connect_icon" loading="lazy"></a><span class="d2c_connect_bracket">]</span></span>
+                            <span class="d2c_connect_icon_wrap"><span class="d2c_connect_bracket">[</span><a href="https://github.com/cyberac-cmd" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="d2c_connect_icon_link"><img src="./assets/images/github.svg" alt="GitHub" class="d2c_connect_icon" loading="lazy"></a><span class="d2c_connect_bracket">]</span></span>
+                        </div>
+                        <p class="d2c_connect_email mb-0">
+                            <span class="d2c_connect_terminal">[SECURE_CHANNEL]</span> <span class="d2c_connect_arrow">-&gt;</span> <a href="mailto:work.acilasevic@outlook.com" class="d2c_connect_email_link">work.acilasevic@outlook.com</a>
+                        </p>
+                        <p class="d2c_connect_cv mt-3 mb-0">
+                            <a href="./assets/docs/Almir_Cilasevic_Resume_Re.pdf" target="_blank" rel="noopener noreferrer" class="d2c_connect_cv_link" aria-label="Download resume (PDF)">[REQUEST_OFFLINE_RESUME: PDF_FORMAT]</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="d2c_system_bar">
+            <div class="d2c_system_bar_inner">
+                <div class="d2c_live_logs">
+                    <div class="d2c_live_logs_header">
+                        <span class="d2c_live_logs_dot" aria-hidden="true"></span>
+                        LIVE_SYSTEM_MONITOR
+                    </div>
+                    <div class="d2c_log_container" id="d2c_log_container" aria-live="polite">
+                    </div>
+                </div>
+                <p class="d2c_system_bar_legal mb-0">&copy; 2026 // ALMIR CILASEVIC // <span class="d2c_system_bar_cyan">[PRIVACY: NO TRACKERS / NO COOKIES]</span> // <span class="d2c_system_bar_cyan">[SYSTEM STATUS: SECURE]</span></p>
+                <p class="d2c_system_bar_hardened mb-0">// Site Hardened: OWASP Top 10 Best Practices | Subresource Integrity Verified</p>
+            </div>
+        </footer>
+
+        <div id="scrollBtn">
+            <a href="#" aria-label="Scroll to top"><i class="fas fa-chevron-up" aria-hidden="true"></i></a>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="./lib/WOW-master/dist/wow.min.js" crossorigin="anonymous"></script>
+    <script src="./lib/bootstrap-5/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="./lib/slick-1.8.1/slick/slick.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js" integrity="sha384-UoFnwgbUNlK0Rwou15cSoyrXQvKrOUxV8AkCoGKSSd0sxVeJ95ARU8uGMkMZhzpB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Draggable.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/DrawSVGPlugin.min.js" integrity="sha384-oYAL/lfUuSL9ZYH8CHTTs4o+IE5zQBw3kNaiYvlp8+REGwGKvRQI/YPotuzV3F56" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/EaselPlugin.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Flip.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/GSDevTools.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/InertiaPlugin.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/MotionPathHelper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/MotionPathPlugin.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/MorphSVGPlugin.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Observer.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Physics2DPlugin.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/PhysicsPropsPlugin.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/PixiPlugin.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrambleTextPlugin.min.js" integrity="sha384-JdB4klQyaRYQwZmx3z/s4dPIadv84SxbektC+TFfQlSG6rEL9VfjqeXWXrAfHQTt" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js" integrity="sha384-s2VjM2y83PpWd6b7vX27Pt3ZhwavFDwKXFvapmlQrOzBo9vX990dSgHdpqPgOfF0" crossorigin="anonymous"></script>
+<!-- ScrollSmoother requires ScrollTrigger -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollToPlugin.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js" integrity="sha384-og/mrD2vdMqjyGxWqnubcUzxmFGIKlqgiUIJVC/vl7T5XcGvrS+LTFHrx7FntOhn" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js" crossorigin="anonymous"></script>
+
+<!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/EasePack.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/CustomEase.min.js" crossorigin="anonymous"></script>
+<!-- CustomBounce requires CustomEase -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/CustomBounce.min.js" crossorigin="anonymous"></script>
+<!-- CustomWiggle requires CustomEase -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/CustomWiggle.min.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js" crossorigin="anonymous"></script>
+</body>
+</html>
