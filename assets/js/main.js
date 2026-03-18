@@ -29,8 +29,59 @@ $(document).ready(function() {
     });
 });
 
-// WOW JS – scroll-triggered reveal animations (safety check if CDN fails)
-    if (typeof WOW === 'function') { new WOW().init(); }
+/* ==========================================================================
+   Scroll reveal (WOW replacement) – Intersection Observer, no eval()
+   Looks for `.wow` elements and applies their animation class (e.g. fadeInUp).
+   ========================================================================== */
+(function() {
+    function revealWowElements() {
+        var wowEls = Array.prototype.slice.call(document.querySelectorAll('.wow'));
+        if (!wowEls.length) return;
+
+        function applyAnimation(el) {
+            if (!el) return;
+            if (el.dataset && el.dataset.d2cWowDone === '1') return;
+
+            // Preserve existing WOW markup: `.wow fadeInUp` etc (animate.css v3 style)
+            var animationClass = '';
+            el.classList.forEach(function(c) {
+                if (c !== 'wow') animationClass = animationClass || c;
+            });
+
+            el.style.visibility = 'visible';
+            // animate.css expects `animated` + the animation name
+            el.classList.add('animated');
+            if (animationClass) el.classList.add(animationClass);
+
+            if (el.dataset) el.dataset.d2cWowDone = '1';
+        }
+
+        if (!('IntersectionObserver' in window)) {
+            wowEls.forEach(applyAnimation);
+            return;
+        }
+
+        var io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (!entry.isIntersecting) return;
+                applyAnimation(entry.target);
+                io.unobserve(entry.target);
+            });
+        }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+        wowEls.forEach(function(el) {
+            // If CSS left it hidden, ensure it becomes visible on reveal.
+            el.style.visibility = el.style.visibility || 'hidden';
+            io.observe(el);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', revealWowElements);
+    } else {
+        revealWowElements();
+    }
+})();
 
 /* Tap-to-expand for skills tiles on touch devices (hover: none) */
 (function() {
