@@ -1,65 +1,63 @@
-# <p align="center">🕵️ PROJECT: CLOUD-NATIVE_SECURITY_IMPLEMENTATION</p>
+🛠️ Project Mission Briefing
+This repository is a Technical Showcase of a hardened front-end environment. Beyond standard UI/UX, this project focuses on Defensive Design Patterns, Strict CSP Compliance, and Edge-Level Security Enforcement.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/ARCHITECTURE-SECURE_FRONTEND-ff69b4?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/PIPELINE-AZURE_SWA_/_CLOUDFLARE-00FFFF?style=for-the-badge&logo=microsoft-azure" />
-  <img src="https://img.shields.io/badge/COMPLIANCE-OWASP_ALIGNED-32CD32?style=for-the-badge" />
-</p>
+SYSTEM_URL: LIVE_DEPLOYMENT
+🧪 Technical Implementation & Workarounds
+1. The "A+ Security" Refactor (WOW.js Replacement)
+To achieve a perfect A+ Security Score, we had to eliminate all "Insecure Patterns."
 
----
+The Conflict: Industry-standard animation libraries (like WOW.js) rely on eval() and unsafe-inline styles, which are flagged by modern security scanners.
 
-## 🛠️ Project Mission Briefing
-This repository is a **Technical Showcase** of a hardened front-end environment. The objective was to build a high-performance, interactive portfolio that adheres to **Defensive Design Patterns** and **Secure SDLC** (Software Development Life Cycle) principles.
+The Solution: Conducted a structural refactor to remove WOW.js. Implemented a custom Intersection Observer API in main.js to trigger CSS animations.
 
-### [SYSTEM_URL: LIVE_DEPLOYMENT](https://www.acilasevic.com.au)
+Result: Successfully removed 'unsafe-eval' from the Content Security Policy (CSP), reaching the maximum security grade without sacrificing the interactive "Redaction" experience.
 
----
+<img width="1193" height="306" alt="image" src="https://github.com/user-attachments/assets/ca9d212b-ff06-4b60-8067-51f998b02ef4" />
 
-## 🧪 Technical Implementation Deep-Dive
 
-### 1. Progressive Information Disclosure (Redaction Logic)
-Instead of standard text rendering, this project implements a **Classified Redaction System** using GSAP ScrollTriggers.
-* **The Logic:** Content exists in the DOM but is visually obscured by a "Black-Bar" overlay that scales to `0` only upon specific viewport intersection.
-* **Security Control:** This prevents "Passive Data Scraping." A bot crawling the site sees the structure, but the content remains "locked" until a human-like scroll event is registered.
-* **Implementation:** Developed using strictly `appendChild` and `textContent` to mitigate **DOM-based XSS** vulnerabilities.
+2. Edge-Enforced HSTS (Zero-Trust Transport)
+Rather than relying on application-level redirects, this project utilizes Cloudflare Edge HSTS.
 
-### 2. Forensic Artifact Inspection (The HUD Loupe)
-A custom-built **Forensic Loupe** tool allows for high-fidelity inspection of visual assets without compromising UI integrity.
-* **The Logic:** A dynamic `canvas` overlay that calculates mouse coordinates relative to the source image.
-* **Security Control:** The "Attack Surface" background utilizes `pointer-events: none` and `tabindex="-1"` to prevent **Clickjacking** and focus-trapping, ensuring the UI remains navigable and secure.
+The Logic: HSTS is enforced at the network edge before a single byte of the application is loaded.
 
-### 3. Hardened Asset Pipeline (Data Sanitisation)
-A core requirement of this project was the **Data Destruction** of sensitive PII (Personally Identifiable Information) within public-facing PDFs.
-* **The Process:** 1. **Destructive Redaction:** PII physically removed at the source.
-    2. **Rasterisation (PDF2Go):** Converting text-based PDFs into flat image layers to defeat **OCR (Optical Character Recognition)** recovery tools.
-    3. **Metadata Scrubbing:** Wiping EXIF and document properties to eliminate digital fingerprints (Author, Software, Timestamps).
+Preload Compliance: Configured for the HSTS Preload List, ensuring browsers never attempt an unencrypted HTTP connection.
 
----
+Verification: Validated via SecurityHeaders.com and Mozilla Observatory to ensure Strict-Transport-Security is correctly propagated across all subdomains.
 
-## 🏗️ Infrastructure & DevSecOps
+3. Progressive Information Disclosure (Redaction Logic)
+Content exists in the DOM but is visually obscured by a "Black-Bar" overlay that scales to 0 only upon specific viewport intersection.
 
-### **Cloud-Native Deployment**
-Deployed via **Azure Static Web Apps** with an automated **GitHub Actions** CI/CD pipeline. 
-* **Header Hardening:** Custom `staticwebapp.config.json` enforces:
-    * `Strict-Transport-Security` (HSTS)
-    * `X-Content-Type-Options: nosniff`
-    * `X-Frame-Options: DENY`
+Security Control: Prevents "Passive Data Scraping" by automated crawlers that do not simulate human scroll behavior.
 
-### **Edge Security (Cloudflare)**
-* **Proxy Protection:** Masking origin IP addresses via Cloudflare's Global Edge Network.
-* **SSL/TLS:** Configured for **Full (Strict)** encryption with **DNSSEC** enabled to prevent DNS Spoofing/Poisoning.
-* **Authentication:** Validated using `_dnsauth` TXT tokens to mitigate **Subdomain Hijacking** risks.
+Implementation: Built using strictly textContent and appendChild to mitigate DOM-based XSS vulnerabilities.
 
----
+4. Hardened Asset Pipeline
+Metadata Scrubbing: All PDF assets undergo destructive redaction and EXIF wiping to eliminate digital fingerprints.
 
-## 📂 Repository Structure
+Rasterisation: Converting sensitive documents into flattened image layers to defeat OCR (Optical Character Recognition) recovery attempts.
 
-```text
-├── .github/workflows/   # CI/CD Pipeline (Deployment Automation)
+🏗️ DevSecOps Stack
+Automated CI/CD (GitHub Actions)
+The deployment pipeline is fully automated but hardened:
+
+Custom Headers: staticwebapp.config.json enforces X-Frame-Options: DENY and X-Content-Type-Options: nosniff.
+
+CSP Splitting: Utilises script-src-elem and style-src-attr to provide granular control over CDN-hosted assets vs. local logic.
+
+Edge Security (Cloudflare)
+SSL/TLS: Full (Strict) encryption with CNAME Flattening on the Apex domain.
+
+DNSSEC: Enabled to prevent DNS hijacking and cache poisoning.
+
+Identity Validation: Authenticated via _dnsauth TXT tokens for Azure domain ownership.
+
+📂 Repository Structure
+Plaintext
+├── .github/workflows/    # CI/CD Pipeline (Deployment Automation)
 ├── assets/
-│   ├── docs/           # Sanitised & Rasterised PDF Assets
-│   ├── css/            # UI Framework (Neon Pink/True Cyan Hierarchy)
-│   └── js/             # Interaction Logic (Redaction & Forensic HUD)
-├── staticwebapp.config.json # Azure Security Policy Configuration
-├── index.html          # Hardened Entry Point
-└── README.md           # Project Documentation
+│   ├── docs/             # Sanitised & Rasterised PDF Assets
+│   ├── css/              # UI Framework (Neon Pink/True Cyan Hierarchy)
+│   └── js/               # Hardened Interaction Logic (Intersection Observer)
+├── staticwebapp.config.json # Hardened Azure Security Policy
+├── index.html            # Hardened Entry Point (No inline scripts)
+└── README.md             # System Documentation
