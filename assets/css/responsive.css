@@ -863,6 +863,19 @@
     .d2c_project_wrapper .d2c_project_card_glass:hover .d2c_project_card_bg {
         transform: none;
     }
+    .d2c_sim_card_inner:hover {
+        border-color: rgba(0, 251, 255, 0.35);
+        box-shadow: none;
+    }
+    .d2c_sim_card_inner:hover .d2c_sim_logo {
+        transform: none;
+        filter: grayscale(0.15) brightness(0.95);
+    }
+    .d2c_btn_sim:hover {
+        color: #00FBFF;
+        background: transparent;
+        box-shadow: none;
+    }
 }
 
 /* 

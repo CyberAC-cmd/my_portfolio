@@ -162,7 +162,7 @@ $(document).ready(function() {
     }
 
     // Section titles: store text, clear, hide – then ScrollTrigger onEnter runs decryptTitle once
-    var headerSelectors = '.d2c_about_heading, .d2c_experience_section_title, .d2c_project_section_title, .d2c_comms_title';
+    var headerSelectors = '.d2c_about_heading, .d2c_experience_section_title, .d2c_project_section_title, .d2c_field_ops_section_title, .d2c_comms_title';
     var sectionTitles = gsap.utils.toArray(headerSelectors);
 
     sectionTitles.forEach(function(el) {
@@ -231,6 +231,24 @@ $(document).ready(function() {
         ease: 'power2.out',
         scrollTrigger: { trigger: '.d2c_project_card_grid', start: scrollTriggerStart, toggleActions: 'play none none none' }
     });
+
+    // Field operations job simulation cards – staggered entrance (0.3s between cards)
+    var simCards = gsap.utils.toArray('.d2c_sim_card');
+    if (simCards.length) {
+        gsap.set(simCards, { opacity: 0, y: 50 });
+        gsap.to(simCards, {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            ease: 'power2.out',
+            stagger: 0.3,
+            scrollTrigger: {
+                trigger: '#job-sim',
+                start: scrollTriggerStart,
+                toggleActions: 'play none none none'
+            }
+        });
+    }
 
     // Bento Grid Reveal: fade in and slide up with cascading stagger when grid enters viewport
     gsap.set('#experience .d2c_bento_tile', { y: 50, opacity: 0 });
@@ -441,7 +459,7 @@ $(document).ready(function() {
             tl.to(headlineEl, {
                 duration: scrambleDuration,
                 scrambleText: {
-                    text: '[PIVOT_INITIALISED: PHYSICAL_SECURITY -> DIGITAL_DEFENCE]',
+                    text: 'ALMIR CILASEVIC',
                     chars: 'upperCase',
                     revealDelay: 0.9,
                     speed: 0.16,
@@ -450,7 +468,7 @@ $(document).ready(function() {
                 ease: 'power2.inOut'
             }, 0);
         } else if (headlineEl) {
-            tl.set(headlineEl, { textContent: '[PIVOT_INITIALISED: PHYSICAL_SECURITY -> DIGITAL_DEFENCE]' }, 0);
+            tl.set(headlineEl, { textContent: 'ALMIR CILASEVIC' }, 0);
         }
         if (caretEl) tl.set(caretEl, { opacity: 1 }, scrambleDuration);
         tl.call(function() {
@@ -691,7 +709,7 @@ function initCyberInteractions() {
         if (progressBar) progressBar.classList.add('d2c_progress_hidden');
         var homeStatus = telemetrySidebar.querySelector('[data-section="home"]');
         if (homeStatus) homeStatus.classList.add('d2c_telemetry_current');
-        var sections = ['home', 'about', 'experience', 'project'];
+        var sections = ['home', 'about', 'experience', 'project', 'job-sim'];
         sections.forEach(function(id) {
             var section = document.getElementById(id);
             if (!section) return;

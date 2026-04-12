@@ -475,10 +475,11 @@ p {
     background-size: cover;
     font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace !important;
 }
-/* Section headings: unified terminal aesthetic (01_WHOAMI, 02_LOGS, 03_PROJECTS) */
+/* Section headings: unified terminal aesthetic (01_WHOAMI, 02_LOGS, 03_PROJECTS, FIELD_OPS) */
 .d2c_about_heading,
 .d2c_experience_wrapper .d2c_experience_section_title,
 .d2c_project_wrapper .d2c_project_section_title,
+.d2c_job_sim_section .d2c_field_ops_section_title,
 .d2c_connect_wrapper .d2c_comms_title {
     font-family: 'JetBrains Mono', monospace !important;
     font-size: 2.5rem;
@@ -497,6 +498,7 @@ p {
     .d2c_about_heading,
     .d2c_experience_wrapper .d2c_experience_section_title,
     .d2c_project_wrapper .d2c_project_section_title,
+    .d2c_job_sim_section .d2c_field_ops_section_title,
     .d2c_connect_wrapper .d2c_comms_title {
         font-size: 1.75rem;
     }
@@ -2087,6 +2089,134 @@ h1 span {
     font-size: 10px;
     margin-right: 10px;
 }
+
+/* Field operations – job simulations (GRC / SOC narrative), neon cyan #00FBFF */
+.d2c_job_sim_section {
+    padding-top: 0;
+}
+.d2c_job_sim_section .d2c_field_ops_section_title {
+    margin-bottom: 16px;
+}
+.d2c_field_ops_grid {
+    margin-top: 8px;
+}
+.d2c_sim_card {
+    height: 100%;
+}
+.d2c_sim_card_inner {
+    position: relative;
+    height: 100%;
+    padding: 22px 22px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 251, 255, 0.35);
+    background: rgba(10, 14, 22, 0.72);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.d2c_sim_card_inner:hover {
+    border-color: #00FBFF;
+    box-shadow: 0 0 22px rgba(0, 251, 255, 0.45);
+}
+.d2c_sim_card_header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+.d2c_sim_logo {
+    height: 48px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(0.15) brightness(0.95);
+}
+.d2c_sim_card_inner:hover .d2c_sim_logo {
+    transform: scale(1.1);
+    filter: none;
+}
+.d2c_sim_card_title {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #00ffff !important;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.35);
+}
+.d2c_job_sim_section .d2c_sim_label {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #00FBFF;
+    text-shadow: 0 0 8px rgba(0, 251, 255, 0.35);
+    margin-top: 10px;
+}
+.d2c_job_sim_section .d2c_sim_label:first-of-type {
+    margin-top: 0;
+}
+.d2c_job_sim_section .d2c_sim_role,
+.d2c_job_sim_section .d2c_sim_overview {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 0;
+}
+.d2c_job_sim_section .d2c_sim_key_outcomes {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    padding-left: 1.1rem;
+    margin: 0;
+    flex: 1;
+    list-style-type: disc;
+}
+.d2c_job_sim_section .d2c_sim_key_outcomes li {
+    margin-bottom: 10px;
+}
+.d2c_job_sim_section .d2c_sim_key_outcomes li:last-child {
+    margin-bottom: 0;
+}
+.d2c_job_sim_section .d2c_sim_key_outcomes strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+.d2c_job_sim_section .d2c_sim_card_inner .d2c_btn_sim {
+    margin-top: auto;
+    padding-top: 18px;
+}
+.d2c_btn_sim {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    align-self: flex-start;
+    padding: 10px 22px;
+    border-radius: 0;
+    border: 2px solid #00FBFF;
+    color: #00FBFF;
+    background: transparent;
+    clip-path: polygon(8% 0, 100% 0, 100% 72%, 92% 100%, 0 100%, 0 28%);
+    transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.d2c_btn_sim:hover {
+    color: #000000;
+    background: #00FBFF;
+    border-color: #00FBFF;
+    box-shadow: 0 0 18px rgba(0, 251, 255, 0.55);
+}
+.d2c_btn_sim:focus-visible {
+    outline: 2px solid #00FBFF;
+    outline-offset: 3px;
+}
 /* Project Section End */
 
 /* Partner Section Start */
@@ -2520,6 +2650,7 @@ textarea {
 .d2c_about_heading,
 .d2c_experience_section_title,
 .d2c_project_section_title,
+.d2c_field_ops_section_title,
 .d2c_comms_title {
     opacity: 0;
 }
