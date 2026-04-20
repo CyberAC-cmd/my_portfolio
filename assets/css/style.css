@@ -2188,9 +2188,16 @@ h1 span {
     color: #ffffff;
     font-weight: 700;
 }
-.d2c_job_sim_section .d2c_sim_card_inner .d2c_btn_sim {
+.d2c_sim_btn_row {
     margin-top: auto;
     padding-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+.d2c_sim_btn_row .d2c_btn_sim {
+    margin-top: 0;
 }
 .d2c_btn_sim {
     font-family: "JetBrains Mono", "Fira Code", "Consolas", ui-monospace, monospace;
@@ -2207,11 +2214,20 @@ h1 span {
     clip-path: polygon(8% 0, 100% 0, 100% 72%, 92% 100%, 0 100%, 0 28%);
     transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
+.d2c_btn_sim.d2c_btn_sim_secondary {
+    border-color: rgba(0, 251, 255, 0.55);
+    color: rgba(0, 251, 255, 0.95);
+}
 .d2c_btn_sim:hover {
     color: #000000;
     background: #00FBFF;
     border-color: #00FBFF;
     box-shadow: 0 0 18px rgba(0, 251, 255, 0.55);
+}
+.d2c_btn_sim.d2c_btn_sim_secondary:hover {
+    color: #000000;
+    background: #00FBFF;
+    border-color: #00FBFF;
 }
 .d2c_btn_sim:focus-visible {
     outline: 2px solid #00FBFF;

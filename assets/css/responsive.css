@@ -876,6 +876,11 @@
         background: transparent;
         box-shadow: none;
     }
+    .d2c_btn_sim.d2c_btn_sim_secondary:hover {
+        color: rgba(0, 251, 255, 0.95);
+        background: transparent;
+        box-shadow: none;
+    }
 }
 
 /* 
